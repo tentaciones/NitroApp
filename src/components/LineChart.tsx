@@ -44,7 +44,9 @@ const options = {
     },
   },
   plugins: {
-    legend: false,
+    legend: {
+      display: false, // Hide the legend
+    },
   },
 };
 
