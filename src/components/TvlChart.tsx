@@ -50,7 +50,7 @@ const options = {
   },
 };
 
-const LineChart = () => (
+const TvlChart = () => (
   <div className=" mt-[150px] w-full h-[300px] px-20 text-white">
     <p className="text-sm font-thin text-[#D7DEEA]">
       {"TVL(TOTAL VOLUME LOCKED)"}
@@ -69,8 +69,9 @@ const LineChart = () => (
         </div>
       </div>
     </div>
+
     <Line data={data} options={options} />
   </div>
 );
 
-export default LineChart;
+export default TvlChart;

@@ -1,12 +1,12 @@
 import React from "react";
-import LineChart from "./LineChart";
+
 import Pools from "./Pools";
 
 type Props = {};
 
 const Pool = (props: Props) => {
   return (
-    <div className="px-20 w-screen mt-20 text-white">
+    <div className="px-20 w-screen mt-64 text-white">
       <div className="flex gap-3 items-center">
         <div className="w-32 h-[40px] flex items-center -center text-xl font-bold">
           <p>Pools</p>
