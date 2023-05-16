@@ -10,7 +10,7 @@ type Props = {};
 const Navbar = (props: Props) => {
   const [currentChainName, setCurrentChainName] = useState<string>();
   return (
-    <div className="w-screen h-20 fixed flex justify-between  px-20 text-white">
+    <div className="w-screen h-20 fixed flex justify-between bg-background  px-20 text-white">
       <div className="flex items-center gap-1 ">
         <Image
           src={logo.src}
