@@ -4,7 +4,7 @@ type Props = {};
 
 const Pools = (props: Props) => {
   return (
-    <table className="w-full text-sm text-left  text-white h-[600px] mt-10 rounded-xl">
+    <table className="w-full text-sm text-left  text-white h-[600px] mt-10 rounded-xl ">
       <thead className="w-full h-[60px]">
         <tr className="h-[60px] flex items-start bg-background text-[#B7BECD] w-full">
           <th
@@ -51,6 +51,9 @@ const Pools = (props: Props) => {
           </th>
         </tr>
       </thead>
+      <tbody className="bg-[#061727] h-[500px] rounded-md">
+        <tr className="">l</tr>
+      </tbody>
     </table>
   );
 };

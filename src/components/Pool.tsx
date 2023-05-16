@@ -17,11 +17,11 @@ const Pool = (props: Props) => {
           className="w-full h-[40px] rounded-md outline-none bg-background border border-[#828282] hover:border-[#00FDEE] focus:border-[#00FDEE]  px-5 placeholder:text-[#828282]"
           placeholder="search by name, address"
         />
-        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.8px] py-[0.8px] rounded-md h-[40px] w-[180px]">
+        <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.8px] py-[0.8px] rounded-md h-[40px] w-[180px]">
           <div className="bg-background rounded-md h-full w-full flex items-center justify-center">
             <p className=""> Create New Pool</p>
           </div>
-        </div>
+        </button>
       </div>
 
       <div className="px-5">

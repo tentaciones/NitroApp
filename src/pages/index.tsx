@@ -21,6 +21,7 @@ export default function Home() {
         <Navbar />
         <LineChart />
         <Pool />
+        <div className="mb-20"></div>
       </main>
     </>
   );

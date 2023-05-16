@@ -22,16 +22,16 @@ const Navbar = (props: Props) => {
         <p className="font-bold text-xl">NitroFinance</p>
       </div>
       <div className="flex items-center gap-5">
-        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-md px-5 py-1">
+        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
           <p>Trade</p>
         </div>
-        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-md px-5 py-1">
+        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
           <p>Pool</p>
         </div>
-        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-md px-5 py-1">
+        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
           <p>Liquidity</p>
         </div>
-        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-md px-5 py-1">
+        <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
           <BsThreeDots />
         </div>
         <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-1 py-1 rounded-md h-[50px] w-[180px]">
