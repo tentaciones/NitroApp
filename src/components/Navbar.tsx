@@ -34,8 +34,8 @@ const Navbar = (props: Props) => {
         <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
           <BsThreeDots />
         </div>
-        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-1 py-1 rounded-md h-[50px] w-[180px]">
-          <div className="bg-background rounded-md h-full w-full flex items-center justify-center">
+        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.8px] py-[0.8px]  h-[50px] w-[180px]">
+          <div className="bg-background  h-full w-full flex items-center justify-center">
             {currentChainName ? (
               <p className="">{currentChainName}</p>
             ) : (
