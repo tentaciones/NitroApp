@@ -54,7 +54,7 @@ const Pools = (props: Props) => {
                       NitroPointsGenerated,
                     }) => {
                       return (
-                        <tr className="border-b border-[#00040F] ">
+                        <tr className="border-b border-[#00040F] " key={TokenX}>
                           <td className="whitespace-nowrap px-6 py-4 font-medium w-[25%]">
                             <div className="flex px-5 items-center ">
                               <Image
