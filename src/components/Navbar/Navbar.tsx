@@ -13,7 +13,7 @@ type Props = {};
 const Navbar = (props: Props) => {
   const [currentChainName, setCurrentChainName] = useState<string>();
 
-  const [isDropDown, setIsDropDown] = useState(true);
+  const [isDropDown, setIsDropDown] = useState(false);
   return (
     <div className="w-screen h-20 fixed flex justify-between bg-background  px-20 text-white">
       <div className="flex items-center gap-1 ">
