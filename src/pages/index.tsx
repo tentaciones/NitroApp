@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import { Navbar, Pool, TvlChart, VolumeChart } from "@/components";
+import { TvlChart, VolumeChart } from "@/components/charts";
+import { Pool } from "@/components/pools";
+import { Navbar } from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 

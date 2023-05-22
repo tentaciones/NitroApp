@@ -7,7 +7,7 @@ const alchemyId = process.env.ALCHEMY_ID;
 const chains = [arbitrumGoerli];
 const client = createClient(
   getDefaultClient({
-    appName: "Your App Name",
+    appName: "NitroFinance",
     alchemyId,
     chains,
   })

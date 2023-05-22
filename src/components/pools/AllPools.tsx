@@ -4,7 +4,7 @@ import React from "react";
 
 type Props = {};
 
-const Pools = (props: Props) => {
+const AllPools = (props: Props) => {
   return (
     <div className="flex flex-col mt-10">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -108,4 +108,4 @@ const Pools = (props: Props) => {
   );
 };
 
-export default Pools;
+export default AllPools;
