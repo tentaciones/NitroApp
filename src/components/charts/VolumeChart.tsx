@@ -51,7 +51,7 @@ const options = {
 };
 
 const VolumeChart = () => (
-  <div className=" mt-[150px] w-full h-[300px] px-20 text-white">
+  <div className=" md:mt-[150px] mt-10 w-full h-[300px] md:px-20 px-5 text-white ">
     <p className="text-sm font-thin text-[#D7DEEA]">{"Volume(D)"}</p>
     <div className="flex items-center justify-between">
       <p className="text-3xl font-bold">$78.4K</p>

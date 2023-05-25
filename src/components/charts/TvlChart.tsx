@@ -51,7 +51,7 @@ const options = {
 };
 
 const TvlChart = () => (
-  <div className=" mt-[150px] w-full h-[300px] px-20 text-white">
+  <div className=" mt-[150px] w-full h-[300px] md:px-20 px-5 text-white">
     <p className="text-sm font-thin text-[#D7DEEA]">
       {"TVL(TOTAL VOLUME LOCKED)"}
     </p>

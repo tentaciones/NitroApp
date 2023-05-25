@@ -21,7 +21,7 @@ export default function Home() {
         className={`flex min-h-screen flex-col items-center justify-between  bg-background`}
       >
         <Navbar />
-        <div className="flex  h-[300px] w-full">
+        <div className="flex md:flex-row flex-col  h-[300px] w-full">
           <TvlChart />
           <VolumeChart />
         </div>

@@ -15,7 +15,7 @@ const Navbar = (props: Props) => {
 
   const [isDropDown, setIsDropDown] = useState(false);
   return (
-    <div className="w-screen h-20 fixed flex justify-between bg-background  px-20 text-white">
+    <div className="w-screen h-20 fixed flex justify-between bg-background px-5 md:px-20 text-white">
       <div className="flex items-center gap-1 ">
         <Image
           src={logo.src}
@@ -24,17 +24,17 @@ const Navbar = (props: Props) => {
           width={0}
           className="h-10 w-10"
         />
-        <p className="font-bold text-xl">NitroFinance</p>
+        <p className="font-bold md:text-xl hidden md:block">NitroFinance</p>
       </div>
-      <div className="flex items-center justify-end gap-5 h-full">
-        <div className="flex items-center justify-end">
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
+      <div className="flex items-center justify-end gap-5  h-full ">
+        <div className="flex items-center justify-end ">
+          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
             <p>Trade</p>
           </div>
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
+          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
             <p>Pool</p>
           </div>
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1">
+          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
             <p>Liquidity</p>
           </div>
           <div
@@ -45,17 +45,19 @@ const Navbar = (props: Props) => {
           >
             <BsThreeDots className={`${isDropDown && "text-[#00FDEE] "}`} />
           </div>
-          <Dropdown isDropDown={isDropDown} />
+          <div>
+            <Dropdown isDropDown={isDropDown} />
+          </div>
         </div>
 
-        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[60px]  hover:cursor-pointer">
+        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[60px]  hover:cursor-pointer hidden md:block">
           <div className="bg-background  h-full w-full flex items-center justify-center">
             <Image
               src={arbLogo}
               alt=""
               height={0}
               width={0}
-              className="h-[30px] w-[30px]"
+              className="h-[30px] w-[30px] "
             />
           </div>
         </div>
