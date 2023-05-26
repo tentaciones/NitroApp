@@ -14,21 +14,47 @@ const Pool = (props: Props) => {
         <div className="flex">
           <div
             className={`md:w-[100px] w-[50px] text-center h-[40px] flex items-center justify-center  text-[#B7BECD] border-[0.1px] rounded-l-[3px] border-[#03333D] hover:cursor-pointer ${
-              isAllPool && "bg-[#03333D] text-[#00FDEE] border-none"
+              isAllPool && "bg-[#03333D]  border-none"
             }`}
             onClick={() => setAllPool(true)}
           >
-            <p className="md:block hidden">All Pools</p>
-            <p className="md:hidden "> All</p>
+            <p
+              className={`md:block hidden             ${
+                isAllPool && "text-[#00FDEE] "
+              }`}
+            >
+              All Pools
+            </p>
+            <p
+              className={`md:hidden             ${
+                isAllPool && "text-[#00FDEE] "
+              }`}
+            >
+              {" "}
+              All
+            </p>
           </div>
           <div
             className={`md:w-[100px] w-[50px] text-center h-[40px] flex items-center justify-center  text-[#B7BECD] border-[0.1px] rounded-r-[3px] border-[#03333D] hover:cursor-pointer ${
-              !isAllPool && "bg-[#03333D] text-[#00FDEE] border-none"
+              !isAllPool && " bg-[#03333D]  border-none"
             }`}
             onClick={() => setAllPool(false)}
           >
-            <p className="md:block hidden">My Pools</p>
-            <p className="md:hidden "> Mine</p>
+            <p
+              className={`md:block hidden             ${
+                !isAllPool && "text-[#00FDEE] "
+              }`}
+            >
+              My Pools
+            </p>
+            <p
+              className={`md:hidden             ${
+                !isAllPool && "text-[#00FDEE] "
+              }`}
+            >
+              {" "}
+              Mine
+            </p>
           </div>
         </div>
         <div className="w-full relative flex items-center ">
