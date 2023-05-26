@@ -62,14 +62,14 @@ const AllPools = (props: Props) => {
                                 alt=""
                                 width="0"
                                 height="0"
-                                className="-mx-5 h-10 w-10"
+                                className="-mx-3 h-7 w-7"
                               />
                               <Image
                                 src={assetYLogo.src}
                                 alt=""
                                 width="0"
                                 height="0"
-                                className="  h-10 w-10"
+                                className="  h-7 w-7"
                               />
                               <p className="px-2">
                                 {assetXSymbol}/{assetYSymbol}

@@ -18,7 +18,8 @@ const Pool = (props: Props) => {
             }`}
             onClick={() => setAllPool(true)}
           >
-            <p>All Pools</p>
+            <p className="md:block hidden">All Pools</p>
+            <p className="md:hidden "> All</p>
           </div>
           <div
             className={`md:w-[100px] w-[50px] text-center h-[40px] flex items-center justify-center  text-[#B7BECD] border-[0.1px] rounded-r-[3px] border-[#03333D] hover:cursor-pointer ${
@@ -26,19 +27,21 @@ const Pool = (props: Props) => {
             }`}
             onClick={() => setAllPool(false)}
           >
-            <p>My Pools</p>
+            <p className="md:block hidden">My Pools</p>
+            <p className="md:hidden "> Mine</p>
           </div>
         </div>
 
         <input
           type="text"
           className="w-full h-[40px] rounded-md outline-none bg-background border border-[#E7E7E7] hover:border-[#00FDEE] focus:border-[#00FDEE]  px-5 placeholder:text-[#828282]"
-          placeholder="search by name, address"
+          placeholder="search by name, address "
         />
         <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.8px] py-[0.8px] rounded-md h-[40px] w-[280px] text-base">
           <div className="bg-background rounded-md h-full w-full flex items-center justify-center gap-2">
             <BiPlus className="md:block hidden" />
-            <p className="md:text-base text-sm"> Create New Pool</p>
+            <p className="text-base  md:block hidden"> Create New Pool</p>
+            <p className=" text-sm md:hidden block "> New Pool</p>
           </div>
         </button>
       </div>
