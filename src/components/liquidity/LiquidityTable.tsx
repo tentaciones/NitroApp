@@ -1,10 +1,9 @@
 import { demoPoolData } from "@/constants/pooldata";
 import Image from "next/image";
 import React from "react";
-
 type Props = {};
 
-const AllPools = (props: Props) => {
+const LiquidityTable = (props: Props) => {
   return (
     <div className="flex flex-col mt-10">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -16,23 +15,17 @@ const AllPools = (props: Props) => {
                   <th scope="col" className="px-6 py-4 w-[25%] font-[200]">
                     Assets
                   </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    TVL
-                  </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    Token X
-                  </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    Token Y
+                  <th scope="col" className="px-6 py-4 w-[15%] font-[200]">
+                    LP Range
                   </th>
                   <th scope="col" className="px-6 py-4 w-[15%] font-[200]">
-                    Trading Volumes
+                    Amount X
                   </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    Debt Ratio
+                  <th scope="col" className="px-6 py-4 w-[15%] font-[200]">
+                    Amount Y
                   </th>
                   <th scope="col" className="px-6 py-4 w-[20%] font-[200]">
-                    Nitro Points Generated
+                    Status
                   </th>
                 </tr>
               </thead>
@@ -76,23 +69,17 @@ const AllPools = (props: Props) => {
                               </p>
                             </div>
                           </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
+                          <td className="whitespace-nowrap px-6 py-4 w-[15%] ">
                             {TVL}
                           </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
+                          <td className="whitespace-nowrap px-6 py-4 w-[15%] ">
                             {TokenX}
                           </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
+                          <td className="whitespace-nowrap px-6 py-4 w-[15%] ">
                             {TokenY}
                           </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[15%] text-center">
+                          <td className="whitespace-nowrap px-6 py-4 w-[20%] ">
                             {TradingVolumes}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] text-center">
-                            {DebtRatio}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[20%] text-center">
-                            {NitroPointsGenerated}
                           </td>
                         </tr>
                       );
@@ -108,4 +95,4 @@ const AllPools = (props: Props) => {
   );
 };
 
-export default AllPools;
+export default LiquidityTable;

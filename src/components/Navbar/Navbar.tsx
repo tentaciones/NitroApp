@@ -8,6 +8,8 @@ import { IoWalletOutline } from "react-icons/io5";
 
 import arbLogo from "@/assets/logo/Arbitrum Logo.svg";
 import Dropdown from "./Dropdown";
+
+import Link from "next/link";
 type Props = {};
 
 const Navbar = (props: Props) => {
@@ -34,9 +36,12 @@ const Navbar = (props: Props) => {
           <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
             <p>Pool</p>
           </div>
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
+          <Link
+            href="/liquidty"
+            className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block"
+          >
             <p>Liquidity</p>
-          </div>
+          </Link>
           <div
             className={`hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 ${
               isDropDown && "bg-[#00fdee0f]"
