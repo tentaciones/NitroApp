@@ -57,7 +57,7 @@ const Pool = (props: Props) => {
             </p>
           </div>
         </div>
-        <div className="w-full relative flex items-center ">
+        <div className="w-full  flex items-center ">
           <input
             type="text"
             className="w-full h-[40px] rounded-md outline-none bg-background border border-[#E7E7E7] hover:border-[#00FDEE] focus:border-[#00FDEE]  px-8 placeholder:text-[#828282]"
