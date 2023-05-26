@@ -50,8 +50,8 @@ const Navbar = (props: Props) => {
           </div>
         </div>
 
-        <div className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[60px]  hover:cursor-pointer hidden md:block">
-          <div className="bg-background  h-full w-full flex items-center justify-center">
+        <div className=" bg-gradient-to-r rounded-md from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[60px]  hover:cursor-pointer hidden md:block">
+          <div className="bg-background  rounded-md h-full w-full flex items-center justify-center">
             <Image
               src={arbLogo}
               alt=""
@@ -73,7 +73,7 @@ const Navbar = (props: Props) => {
           }) => {
             setCurrentChainName(chain?.name);
             return (
-              <button onClick={show} className={styles.connectWallet}>
+              <button onClick={show} className={styles.button}>
                 <div className="flex items-center justify-center gap-2 px-2">
                   <IoWalletOutline className="text-3xl" />
                   {isConnected ? (

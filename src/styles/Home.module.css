@@ -26,3 +26,33 @@
     rgba(162, 169, 255, 0.14) 72.48%
   );
 }
+
+.button {
+  background-image: linear-gradient(
+    90.21deg,
+    rgba(85, 255, 245, 0.7) -16.89%,
+    #5764ff 72.48%
+  );
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: linear-gradient(
+    90.21deg,
+    rgba(85, 255, 245, 0.14) -16.89%,
+    rgba(87, 100, 255, 0.2) 72.48%
+  );
+  border-color: linear-gradient(
+    90.21deg,
+    rgba(85, 255, 245, 0.7) -16.89%,
+    #5764ff 72.48%
+  );
+  cursor: pointer;
+  color: white;
+  border: 2px solid #5764ff;
+}
