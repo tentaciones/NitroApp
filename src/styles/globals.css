@@ -14,3 +14,11 @@
   font-weight: normal;
   font-style: normal;
 }
+/* Hide scrollbar for webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
