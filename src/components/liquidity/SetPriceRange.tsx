@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/Home.module.css";
+import Slider from "./Slider";
 type Props = {};
 
 const SetPriceRange = (props: Props) => {
@@ -8,7 +9,9 @@ const SetPriceRange = (props: Props) => {
   return (
     <div className="w-1/2">
       SetPriceRange
-      <div className="h-1/2"></div>
+      <div className="h-1/2">
+        <Slider />
+      </div>
       <div className="flex justify-between w-full gap-3">
         <div className="flex flex-col items-center  justify-between rounded-md border  border-[#383D48] w-1/2 h-20 py-2">
           <p className="font-thin text-[#9DA5B4] text-sm ">Max Price</p>

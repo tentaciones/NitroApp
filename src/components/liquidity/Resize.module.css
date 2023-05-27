@@ -1,0 +1,56 @@
+.container {
+  border-radius: 5px;
+  width: 100%;
+
+  position: relative;
+}
+
+.resizeable {
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 15px;
+  min-height: 15px;
+}
+
+.resizer {
+  position: absolute;
+  background: black;
+}
+
+.resizerr {
+  cursor: col-resize;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 5px;
+}
+
+.resizert {
+  cursor: row-resize;
+  height: 5px;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.resizerb {
+  cursor: row-resize;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.resizerl {
+  cursor: col-resize;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 5px;
+}

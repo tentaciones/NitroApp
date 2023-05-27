@@ -9,7 +9,7 @@ const Dropdown: FC<Props> = ({ isDropDown }) => {
     <>
       {" "}
       {isDropDown && (
-        <div className="md:h-20 h-[200px] w-[200px] bg-[#061727] mt-32 absolute flex flex-col gap-3 justify-center items-center md:items-start px-5 rounded-md">
+        <div className="md:h-20 h-[180px] flex gap-2 flex-col w-[200px] bg-[#061727] rounded-md absolute mt-8 px-5 justify-center -mx-[60px]">
           <div className="flex gap-2 items-center hover:cursor-pointer md:hidden">
             <p>Trade</p>
             <FiArrowUpRight />

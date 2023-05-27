@@ -10,12 +10,16 @@ import arbLogo from "@/assets/logo/Arbitrum Logo.svg";
 import Dropdown from "./Dropdown";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 type Props = {};
 
 const Navbar = (props: Props) => {
   const [currentChainName, setCurrentChainName] = useState<string>();
 
   const [isDropDown, setIsDropDown] = useState(false);
+  const router = useRouter();
+  const currentPath = router.pathname;
+  console.log(currentPath);
   return (
     <div className="w-screen h-20 fixed flex justify-between bg-background px-5 md:px-20 text-white">
       <div className="flex items-center gap-1 ">
@@ -38,9 +42,15 @@ const Navbar = (props: Props) => {
           </div>
           <Link
             href="/liquidty"
-            className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block"
+            className={`${
+              currentPath === "/liquidty" && "bg-[#00fdee0f]"
+            }hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block`}
           >
-            <p>Liquidity</p>
+            <p
+              className={`${currentPath === "/liquidty" && "text-[#00FDEE] "}`}
+            >
+              Liquidity
+            </p>
           </Link>
           <div
             className={`hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 ${
