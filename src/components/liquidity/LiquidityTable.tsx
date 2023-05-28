@@ -5,7 +5,7 @@ type Props = {};
 
 const LiquidityTable = (props: Props) => {
   return (
-    <div className="flex flex-col mt-5">
+    <div className="flex flex-col mt-5 px-[150px]">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
           <div className="overflow-auto">
