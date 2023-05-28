@@ -9,12 +9,14 @@ const LiquidityBase = (props: Props) => {
   const { isCreateMewPosition, setIsCreateNewPosition }: any =
     useCreatePositionState();
   return (
-    <div className="mt-[150px] text-white px-[150px] w-full">
+    <div className="mt-[180px] text-white px-[150px] w-full">
       {isCreateMewPosition ? (
-        <AddLiquidity />
+        <div className="">
+          <AddLiquidity />
+        </div>
       ) : (
         <>
-          <div className="flex justify-between   ">
+          <div className="flex justify-between  items-center ">
             <p className="text-2xl font-bold">Liquidity Positions</p>
             <button
               className={`${styles.button} w-[200px]`}
