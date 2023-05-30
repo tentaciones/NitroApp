@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { FC, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 type Props = {
@@ -27,10 +28,13 @@ const Dropdown: FC<Props> = ({ isDropDown }) => {
             <FiArrowUpRight />
           </div>
 
-          <div className="flex gap-2 items-center hover:cursor-pointer">
+          <Link
+            href="/debt"
+            className="flex gap-2 items-center hover:cursor-pointer"
+          >
             <p>Debt Position</p>
             <FiArrowUpRight />
-          </div>
+          </Link>
         </div>
       )}{" "}
     </>
