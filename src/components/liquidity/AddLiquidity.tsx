@@ -1,8 +1,8 @@
 import {
   useCreatePositionPreviewState,
   useCreatePositionState,
-  useSuccessState,
 } from "@/hooks/stores/addLiquidityStore";
+import { useSuccessState } from "@/hooks/stores/successStore";
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { SuccessCard } from "../success";

@@ -1,9 +1,9 @@
-import { useSuccessState } from "@/hooks/stores/addLiquidityStore";
 import React, { FC } from "react";
 import successIcon from "@/assets/components/Successful.svg";
 import { IoClose } from "react-icons/io5";
 import Image from "next/image";
 import Link from "next/link";
+import { useSuccessState } from "@/hooks/stores/successStore";
 type Props = {
   text: string;
   arbiscanLink: string;
@@ -38,7 +38,6 @@ const SuccessCard: FC<Props> = ({ text, arbiscanLink }) => {
           </div>
         </div>
       )}
-      ;
     </>
   );
 };

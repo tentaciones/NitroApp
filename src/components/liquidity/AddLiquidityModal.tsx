@@ -1,13 +1,11 @@
-import {
-  useCreatePositionPreviewState,
-  useSuccessState,
-} from "@/hooks/stores/addLiquidityStore";
+import { useCreatePositionPreviewState } from "@/hooks/stores/addLiquidityStore";
 import React from "react";
 import { IoClose } from "react-icons/io5";
 import eth from "@/assets/Eth logo.svg";
 import usdt from "@/assets/tether-seeklogo.com 2.svg";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
+import { useSuccessState } from "@/hooks/stores/successStore";
 type Props = {};
 
 const AddLiquidityModal = (props: Props) => {

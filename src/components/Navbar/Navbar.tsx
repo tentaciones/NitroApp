@@ -34,9 +34,16 @@ const Navbar = (props: Props) => {
       </div>
       <div className="flex items-center justify-end gap-5  h-full ">
         <div className="flex items-center justify-end ">
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
-            <p>Trade</p>
-          </div>
+          <Link
+            href="/swap"
+            className={`${
+              currentPath === "/swap" && "bg-[#00fdee0f]"
+            }hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block`}
+          >
+            <p className={`${currentPath === "/swap" && "text-[#00FDEE] "}`}>
+              Trade
+            </p>
+          </Link>
           <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
             <p>Pool</p>
           </div>

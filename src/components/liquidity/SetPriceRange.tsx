@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styles from "@/styles/Home.module.css";
 import SlideInput from "./SlideInput";
-import {
-  useCreatePositionPreviewState,
-  useSuccessState,
-} from "@/hooks/stores/addLiquidityStore";
+import { useCreatePositionPreviewState } from "@/hooks/stores/addLiquidityStore";
+import { useSuccessState } from "@/hooks/stores/successStore";
 type Props = {};
 
 const SetPriceRange = (props: Props) => {
