@@ -12,7 +12,7 @@ export const useCreatePositionPreviewState = create((set) => ({
 }));
 
 export const useLiquidyState = create((set) => ({
-  isAddLiquidity: false,
+  isAddLiquidity: true,
   setIsAddLiquidity: (value: boolean) => set({ isAddLiquidity: value }),
 }));
 
