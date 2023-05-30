@@ -3,9 +3,11 @@ import styles from "@/styles/Home.module.css";
 import usdt from "@/assets/tether-seeklogo.com 2.svg";
 import eth from "@/assets/Eth logo.svg";
 import Image from "next/image";
+import { useDebtCardState } from "@/hooks/stores/debtStore";
 type Props = {};
 
 const DebtCard = (props: Props) => {
+  const { setIsFlipped }: any = useDebtCardState();
   return (
     <div className={styles.debtCard}>
       <div className="px-2 flex pt-4 justify-between ">
