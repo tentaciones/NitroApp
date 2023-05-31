@@ -21,7 +21,7 @@ const SetPriceRange = (props: Props) => {
   const { isAddLiquidity }: any = useLiquidyState();
 
   return (
-    <div className="w-full px-5 mt-5">
+    <div className="w-full md:px-5 mt-5">
       {isAddLiquidity && (
         <>
           <p>SetPriceRange</p>

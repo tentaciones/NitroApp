@@ -22,7 +22,7 @@ const SelectPair = (props: Props) => {
   }: any = useSelectedTokenstate();
 
   return (
-    <div className="w-full px-5 mt-5">
+    <div className="w-full md:px-5 mt-5">
       <p>Select Pair</p>
       <div className="flex justify-between gap-5 w-full mt-5">
         {showTokenX ? (

@@ -17,11 +17,11 @@ const LiquidityBody = () => {
     <div
       className={`${
         isAddLiquidity
-          ? "h-[950px] w-[40%]  bg-[#061727] mt-20 rounded-2xl overflow-y-scroll"
-          : "h-[750px] w-[40%]  bg-[#061727] mt-20 rounded-2xl overflow-y-scroll"
+          ? "h-[950px] md:w-[40%] w-full  md:bg-[#061727] md:mt-20 mt-10 rounded-2xl overflow-y-scroll  "
+          : "h-[750px] md:w-[40%] w-full  md:bg-[#061727] md:mt-20 mt-10 rounded-2xl overflow-y-scroll"
       }`}
     >
-      <div className="px-5">
+      <div className="md:px-5">
         <div className="rounded-2xl h-[60px] border-[1px] border-[#21242C] mt-10 flex p-2 ">
           <div
             className={`w-1/2  flex items-center justify-center  rounded-xl     hover:cursor-pointer ${

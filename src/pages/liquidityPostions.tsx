@@ -6,9 +6,10 @@ import { Pool } from "@/components/pools";
 import { MobileMenu, Navbar } from "@/components/Navbar";
 import { LiquidityBase } from "@/components/liquidity2";
 import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
+import MobileLiquidtyPosition from "@/components/liquidity2/MobileLiquidtyPosition";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Liquidity() {
+export default function LiquidityPostions() {
   const { isMobileMenuOpen }: any = useMobileNavState();
   return (
     <>
@@ -28,7 +29,7 @@ export default function Liquidity() {
         ) : (
           <>
             <Navbar />
-            <LiquidityBase />
+            <MobileLiquidtyPosition />
             <div className="mb-20"></div>
           </>
         )}
