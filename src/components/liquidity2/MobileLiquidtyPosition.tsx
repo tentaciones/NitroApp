@@ -31,6 +31,7 @@ const MobileLiquidtyPosition = (props: Props) => {
           }) => {
             return (
               <div
+                key={TokenX}
                 className="h-[150px]  w-full rounded-xl border-[0.1px] border-greyishBlue bg-[#061727] mb-5"
                 onClick={() => router.push("/liquidity")}
               >
