@@ -5,18 +5,20 @@ import {
 import { useSuccessState } from "@/hooks/stores/successStore";
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { SuccessCard } from "../success";
+
 import AddLiquidityModal from "../liquidity/AddLiquidityModal";
 
 import BorrowModal from "./BorrowModal";
 import { SelectPair } from "../pair";
-import SetPriceRange from "../liquidity2/SetPriceRange";
+
 import { useRouter } from "next/router";
+import SetPriceRange from "./SetPriceRange";
+import { useBorrowState } from "@/hooks/stores/borrowstores";
+import SuccessCard from "./SuccessCard";
 type Props = {};
 
 const BorrowBase = (props: Props) => {
-  const { setIsCreateNewPosition }: any = useCreatePositionState();
-  const { isPreviewPosition }: any = useCreatePositionPreviewState();
+  const { isPreview, setIsPreview }: any = useBorrowState();
   const { isSuccessfull, setIsSuccessfull }: any = useSuccessState();
   const router = useRouter();
   return (
@@ -42,12 +44,12 @@ const BorrowBase = (props: Props) => {
           </div>
         </div>
       </div>
-      {isPreviewPosition && (
+      {isPreview && (
         <div className="absolute top-0 w-full h-screen">
           <BorrowModal />
         </div>
       )}
-      {isSuccessfull && !isPreviewPosition && (
+      {isSuccessfull && !isPreview && (
         <div className="absolute top-0 w-full h-screen">
           <SuccessCard
             text="Borrowed 0.003 EtH/USDt liquidity"

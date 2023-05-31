@@ -13,7 +13,7 @@ const ReviewSwapModal = (props: Props) => {
   const { setIsSuccessfull }: any = useSuccessState();
   return (
     <>
-      <div className=" h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
+      <div className=" h-full w-full px-2 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
         <div className="h-[600px] w-[500px] bg-[#031120]  rounded-2xl ">
           <div className="flex justify-between  mt-5  items-center px-10">
             {" "}

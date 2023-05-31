@@ -6,16 +6,16 @@ import usdt from "@/assets/tether-seeklogo.com 2.svg";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { useSuccessState } from "@/hooks/stores/successStore";
+import { useBorrowState } from "@/hooks/stores/borrowstores";
 type Props = {};
 
 const BorrowModal = (props: Props) => {
-  const { isPreviewPosition, setIsPreviewPosition }: any =
-    useCreatePositionPreviewState();
+  const { isPreview, setIsPreview }: any = useBorrowState();
   const { isSuccessfull, setIsSuccessfull }: any = useSuccessState();
 
   return (
     <>
-      <div className="h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
+      <div className="h-[145%] px-2 w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
         <div className="h-[600px] w-[500px] bg-[#031120] px-10 rounded-2xl ">
           <div className="flex justify-between  mt-5  items-center">
             {" "}
@@ -25,7 +25,7 @@ const BorrowModal = (props: Props) => {
             </div>
             <IoClose
               className="text-2xl hover:cursor-pointer"
-              onClick={() => setIsPreviewPosition(false)}
+              onClick={() => setIsPreview(false)}
             />
           </div>
           <div className="flex  mt-10">
@@ -97,7 +97,7 @@ const BorrowModal = (props: Props) => {
           <button
             className={`${styles.button} w-full mt-5`}
             onClick={() => {
-              setIsPreviewPosition(false);
+              setIsPreview(false);
               setIsSuccessfull(true);
             }}
           >
