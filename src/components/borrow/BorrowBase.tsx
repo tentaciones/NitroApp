@@ -7,9 +7,10 @@ import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { SuccessCard } from "../success";
 import AddLiquidityModal from "../liquidity/AddLiquidityModal";
-import SelectPair from "../liquidity/SelectPair";
+
 import SetPriceRange from "../liquidity/SetPriceRange";
 import BorrowModal from "./BorrowModal";
+import { SelectPair } from "../pair";
 type Props = {};
 
 const BorrowBase = (props: Props) => {
@@ -19,7 +20,7 @@ const BorrowBase = (props: Props) => {
   return (
     <div className="w-full text-white mt-[180px]">
       <div className="px-[150px]">
-        <div className="h-[600px] w-full bg-[#061727] rounded-xl">
+        <div className="h-[600px] w-full bg-[#061727] rounded-xl overflow-y-scroll">
           <div className="flex justify-between  pt-10 px-10">
             <FiArrowLeft
               className="font-bold text-3xl hover:cursor-pointer"

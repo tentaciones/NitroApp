@@ -1,8 +1,8 @@
 import { useLiquidyState } from "@/hooks/stores/addLiquidityStore";
 import Image from "next/image";
 import React, { useState } from "react";
+import { SelectPair } from "../pair";
 
-import SelectPair from "./SelectPair";
 import SetPriceRange from "./SetPriceRange";
 type SetIsAddLiquidity = (value: boolean) => void;
 type UseLiquidyState = {
