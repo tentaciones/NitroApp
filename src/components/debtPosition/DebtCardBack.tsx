@@ -10,7 +10,7 @@ const DebtCardBack = (props: Props) => {
   const { isRepay, setIsRepay }: any = useRepayState();
   const { repayButtonText, setRepayButtonText }: any = useRepayButtonText();
   return (
-    <div className={styles.debtCard}>
+    <div className={styles.debtCardBack}>
       <div className="px-2 flex pt-4 justify-end">
         <div className="flex gap-2 items-center">
           <p>Active</p>

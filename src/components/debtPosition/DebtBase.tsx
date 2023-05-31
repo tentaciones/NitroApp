@@ -40,8 +40,11 @@ const DebtBase = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="w-[320px]">
-          {true ? <DebtCardBack /> : <DebtCard />}
+        <div className={styles.debtCardMainContainer}>
+          <div className={styles.theCard}>
+            <DebtCard />
+            <DebtCardBack />
+          </div>
         </div>
       </div>
       {isRepay && (

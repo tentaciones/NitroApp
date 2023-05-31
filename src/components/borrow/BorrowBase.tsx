@@ -31,7 +31,10 @@ const BorrowBase = (props: Props) => {
           </div>
           <div className="bg-[#21242C] w-full h-[1px] mt-5"></div>
           <div className="flex justify-between w-full pt-10 px-10 gap-20">
-            <SelectPair />
+            <div className="w-1/2">
+              <SelectPair />
+            </div>
+
             <SetPriceRange />
           </div>
         </div>

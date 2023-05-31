@@ -9,7 +9,7 @@ type Props = {};
 const DebtCard = (props: Props) => {
   const { setIsFlipped }: any = useDebtCardState();
   return (
-    <div className={styles.debtCard}>
+    <div className={styles.debtCardFront}>
       <div className="px-2 flex pt-4 justify-between ">
         <div className="flex px-5  items-center ">
           <Image

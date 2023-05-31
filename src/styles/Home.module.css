@@ -45,37 +45,52 @@
   color: white;
   border: 2px solid #5764ff;
 }
-.debtCard {
-  width: 100%;
+
+.debtCardMainContainer {
+  width: 320px;
   height: 350px;
+  position: relative;
+}
+
+.theCard {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+.theCard:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+.debtCardFront {
+  position: absolute;
+
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  position: relative;
+
   background: linear-gradient(
     233.9deg,
     rgba(16, 16, 28, 0.1) 6.26%,
     rgba(0, 255, 240, 0) 85.96%
   );
 }
-.debtCard:hover {
-  cursor: pointer;
-}
 
-.front,
-.back {
+.debtCardBack {
   position: absolute;
 
   backface-visibility: hidden;
-  transition: transform 0.5s;
-}
-.back {
-  transform: rotateY(180deg);
-}
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 
-.card:hover .front {
+  background: linear-gradient(
+    233.9deg,
+    rgba(16, 16, 28, 0.1) 6.26%,
+    rgba(0, 255, 240, 0) 85.96%
+  );
   transform: rotateY(180deg);
-}
-
-.card:hover .back {
-  transform: rotateY(0);
 }
