@@ -1,7 +1,7 @@
 import { demoPoolData } from "@/constants/pooldata";
 import Image from "next/image";
 import React from "react";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { CgArrowsHAlt } from "react-icons/cg";
 type Props = {};
 
 const LiquidityTable = (props: Props) => {
@@ -20,8 +20,7 @@ const LiquidityTable = (props: Props) => {
                     Min
                   </th>
                   <th scope="col" className="px-6 py-4 w-[10%] font-[200]  ">
-                    <BsArrowLeft />
-                    <BsArrowRight className="" />
+                    <CgArrowsHAlt className="text-2xl" />
                   </th>
                   <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
                     Max
@@ -76,8 +75,7 @@ const LiquidityTable = (props: Props) => {
                             {TVL}
                           </td>
                           <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
-                            <BsArrowLeft />
-                            <BsArrowRight className="" />
+                            <CgArrowsHAlt className="text-2xl" />
                           </td>
                           <td className="whitespace-nowrap px-2 py-4 w-[10%] ">
                             {TokenY}

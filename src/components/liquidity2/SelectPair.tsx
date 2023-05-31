@@ -1,29 +1,65 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import eth from "@/assets/Eth logo.svg";
 import usdt from "@/assets/tether-seeklogo.com 2.svg";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import TokenListDropDown from "./TokenListDropDown";
+import {
+  useSelectedTokenstate,
+  useTokenstate,
+} from "@/hooks/stores/tokenStore";
 type Props = {};
 
 const SelectPair = (props: Props) => {
+  const { showTokenX, setShowTokenX, showTokenY, setShowTokenY }: any =
+    useTokenstate();
+
+  const {
+    selectedTokenX,
+    setSelectedTokenX,
+    selectedTokenY,
+    setSelectedTokenY,
+  }: any = useSelectedTokenstate();
+
   return (
     <div className="w-full px-5 mt-5">
       <p>Select Pair</p>
       <div className="flex justify-between gap-5 w-full mt-5">
-        <div className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer">
-          <div className="flex gap-2">
-            <Image src={eth} alt="" height={0} width={0} />
-            <p>ETH</p>
+        {showTokenX ? (
+          <TokenListDropDown />
+        ) : (
+          <div
+            className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
+            onClick={() => {
+              setShowTokenY(false);
+              setShowTokenX(true);
+            }}
+          >
+            <div className="flex gap-2 ">
+              <Image src={selectedTokenX.image} alt="" height={0} width={0} />
+              <p>{selectedTokenX.name}</p>
+            </div>
+            <MdOutlineKeyboardArrowDown />
           </div>
-          <MdOutlineKeyboardArrowDown />
-        </div>
-        <div className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer">
-          <div className="flex gap-2">
-            <Image src={usdt} alt="" height={0} width={0} />
-            <p>USDT</p>
+        )}
+
+        {showTokenY ? (
+          <TokenListDropDown />
+        ) : (
+          <div
+            className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
+            onClick={() => {
+              setShowTokenX(false);
+              setShowTokenY(true);
+            }}
+          >
+            <div className="flex gap-2 ">
+              <Image src={selectedTokenY.image} alt="" height={0} width={0} />
+              <p>{selectedTokenY.name}</p>
+            </div>
+            <MdOutlineKeyboardArrowDown />
           </div>
-          <MdOutlineKeyboardArrowDown />
-        </div>
+        )}
       </div>
 
       <div className="h-[120px] flex-col rounded-2xl w-full bg-[#071E33] mt-5 hover:border-[#383D48] hover:border px-5 flex justify-center">

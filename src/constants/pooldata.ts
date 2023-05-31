@@ -219,3 +219,14 @@ export const demoPoolData = [
     NitroPointsGenerated: "10000 NP",
   },
 ];
+
+export const tokenData = [
+  {
+    name: "USDT",
+    image: y,
+  },
+  {
+    name: "ETH",
+    image: x,
+  },
+];
