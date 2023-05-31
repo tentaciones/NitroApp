@@ -23,10 +23,13 @@ const Dropdown: FC<Props> = ({ isDropDown }) => {
             <p>Liquidity</p>
             <FiArrowUpRight />
           </div>
-          <div className="flex gap-2 items-center hover:cursor-pointer">
+          <Link
+            href="/borrow"
+            className="flex gap-2 items-center hover:cursor-pointer"
+          >
             <p>Borrow</p>
             <FiArrowUpRight />
-          </div>
+          </Link>
 
           <Link
             href="/debt"

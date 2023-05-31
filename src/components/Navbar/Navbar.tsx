@@ -15,6 +15,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   const [currentChainName, setCurrentChainName] = useState<string>();
+  const [connected, setConnected] = useState(false);
 
   const [isDropDown, setIsDropDown] = useState(false);
   const router = useRouter();
@@ -51,10 +52,12 @@ const Navbar = (props: Props) => {
             <p>Pool</p>
           </Link>
           <Link
-            href="/liquidty"
+            href="/liquidity"
             className={`${
-              currentPath === "/liquidty" && "bg-[#00fdee0f] text-[#00FDEE]"
-            }hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block`}
+              currentPath === "/liquidity"
+                ? "bg-[#00fdee0f] text-[#00FDEE]"
+                : ""
+            } hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE] rounded-sm px-5 py-1 hidden md:block`}
           >
             <p>Liquidity</p>
           </Link>
@@ -70,6 +73,20 @@ const Navbar = (props: Props) => {
             <Dropdown isDropDown={isDropDown} />
           </div>
         </div>
+        {connected && (
+          <div className=" bg-gradient-to-r rounded-md from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[90px]  hover:cursor-pointer hidden md:block">
+            <div className="bg-background  rounded-md h-full w-full flex items-center justify-center gap-2">
+              <p>0</p>
+              <Image
+                src={logo}
+                alt=""
+                height={0}
+                width={0}
+                className="h-[20px] w-[20px] "
+              />
+            </div>
+          </div>
+        )}
 
         <div className=" bg-gradient-to-r rounded-md from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-[60px]  hover:cursor-pointer hidden md:block">
           <div className="bg-background  rounded-md h-full w-full flex items-center justify-center">
@@ -93,6 +110,7 @@ const Navbar = (props: Props) => {
             chain,
           }) => {
             setCurrentChainName(chain?.name);
+            setConnected(isConnected);
             return (
               <button onClick={show} className={`${styles.button} w-[200px]`}>
                 <div className="flex items-center justify-center gap-2 px-2">

@@ -4,10 +4,10 @@ import Head from "next/head";
 import { TvlChart, VolumeChart } from "@/components/charts";
 import { Pool } from "@/components/pools";
 import { Navbar } from "@/components/Navbar";
-import { LiquidityBase } from "@/components/liquidity";
+import { BorrowBase } from "@/components/borrow";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Liquidity() {
+export default function Borrow() {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Liquidity() {
         className={`flex min-h-screen flex-col items-center justify-between  bg-background`}
       >
         <Navbar />
-        <LiquidityBase />
+        <BorrowBase />
       </main>
     </>
   );
