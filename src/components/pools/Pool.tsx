@@ -3,6 +3,7 @@ import { MyPool } from ".";
 import { AllPools } from ".";
 import { BiPlus } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
+import AllPoolMobile from "./AllPoolMobile";
 type Props = {};
 
 const Pool = (props: Props) => {
@@ -19,19 +20,11 @@ const Pool = (props: Props) => {
             onClick={() => setAllPool(true)}
           >
             <p
-              className={`md:block hidden             ${
+              className={`md:text-base text-[10px]             ${
                 isAllPool && "text-[#00FDEE] "
               }`}
             >
               All Pools
-            </p>
-            <p
-              className={`md:hidden             ${
-                isAllPool && "text-[#00FDEE] "
-              }`}
-            >
-              {" "}
-              All
             </p>
           </div>
           <div
@@ -41,19 +34,11 @@ const Pool = (props: Props) => {
             onClick={() => setAllPool(false)}
           >
             <p
-              className={`md:block hidden             ${
+              className={`md:text-base text-[10px]              ${
                 !isAllPool && "text-[#00FDEE] "
               }`}
             >
               My Pools
-            </p>
-            <p
-              className={`md:hidden             ${
-                !isAllPool && "text-[#00FDEE] "
-              }`}
-            >
-              {" "}
-              Mine
             </p>
           </div>
         </div>
@@ -65,18 +50,11 @@ const Pool = (props: Props) => {
           />
           <CiSearch className="absolute mx-3 " />
         </div>
-
-        <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.8px] py-[0.8px] rounded-md h-[40px] w-[280px] text-base">
-          <div className="bg-background rounded-md h-full w-full flex items-center justify-center gap-2">
-            <BiPlus className="md:block hidden" />
-            <p className="text-base  md:block hidden"> Create New Pool</p>
-            <p className=" text-sm md:hidden block "> New Pool</p>
-          </div>
-        </button>
       </div>
       {isAllPool ? (
-        <div className="px-5">
+        <div className="">
           <AllPools />
+          <AllPoolMobile />
         </div>
       ) : (
         <div>

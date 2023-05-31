@@ -16,6 +16,7 @@ module.exports = {
         background: "#031120",
         greenRbg: "rgba(0, 253, 238, 0.1)",
         greenBorderRbg: "rgba(0, 253, 238, 0.2)",
+        greyishBlue: "rgba(12, 43, 71, 0.4)",
       },
     },
   },
