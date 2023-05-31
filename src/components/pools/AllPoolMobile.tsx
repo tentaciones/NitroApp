@@ -22,7 +22,10 @@ const AllPoolMobile = (props: Props) => {
           NitroPointsGenerated,
         }) => {
           return (
-            <div className="h-[150px]  w-full rounded-xl border-[0.1px] border-greyishBlue bg-[#061727] mb-5">
+            <div
+              className="h-[150px]  w-full rounded-xl border-[0.1px] border-greyishBlue bg-[#061727] mb-5"
+              key={TokenX}
+            >
               <div className="flex gap-5 mt-7">
                 <div className="flex px-10 items-center ">
                   <Image
