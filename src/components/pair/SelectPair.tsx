@@ -66,10 +66,10 @@ const SelectPair = (props: Props) => {
         <div className="w-full flex">
           <input
             type="number"
-            className="w-4/5 bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
+            className="w-[70%] bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
             placeholder="0.0 "
           />
-          <div className="flex w-1/5 gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1">
+          <div className="flex w-[30%] gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1">
             <Image src={eth} alt="" height={0} width={0} />
             <p className="text-sm">ETH</p>
           </div>
@@ -86,10 +86,10 @@ const SelectPair = (props: Props) => {
         <div className="w-full flex">
           <input
             type="number"
-            className="w-4/5 bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
+            className="w-[70%] bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
             placeholder="0.0 "
           />
-          <div className="flex w-1/5 gap-1 bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1 hover:cursor-pointer">
+          <div className="flex w-[30%] gap-1 bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1 hover:cursor-pointer">
             <Image src={usdt} alt="" height={0} width={0} />
             <p className="text-sm">USDT</p>
           </div>

@@ -10,19 +10,7 @@ const Dropdown: FC<Props> = ({ isDropDown }) => {
     <>
       {" "}
       {isDropDown && (
-        <div className="md:h-20 h-[180px] flex gap-2 flex-col w-[200px] bg-[#061727] rounded-md absolute mt-8 px-5 justify-center -mx-[60px]">
-          <div className="flex gap-2 items-center hover:cursor-pointer md:hidden">
-            <p>Trade</p>
-            <FiArrowUpRight />
-          </div>
-          <div className="flex gap-2 items-center hover:cursor-pointer md:hidden">
-            <p>Pool</p>
-            <FiArrowUpRight />
-          </div>
-          <div className="flex gap-2 items-center hover:cursor-pointer md:hidden">
-            <p>Liquidity</p>
-            <FiArrowUpRight />
-          </div>
+        <div className="md:h-20 h-[180px] md:flex gap-2 flex-col w-[200px] bg-[#061727] rounded-md absolute mt-8 px-5 justify-center -mx-[60px] hidden">
           <Link
             href="/borrow"
             className="flex gap-2 items-center hover:cursor-pointer"

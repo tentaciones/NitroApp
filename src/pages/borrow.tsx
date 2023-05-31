@@ -3,11 +3,13 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import { TvlChart, VolumeChart } from "@/components/charts";
 import { Pool } from "@/components/pools";
-import { Navbar } from "@/components/Navbar";
+import { MobileMenu, Navbar } from "@/components/Navbar";
 import { BorrowBase } from "@/components/borrow";
+import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Borrow() {
+  const { isMobileMenuOpen }: any = useMobileNavState();
   return (
     <>
       <Head>
@@ -20,8 +22,15 @@ export default function Borrow() {
       <main
         className={`flex min-h-screen flex-col items-center justify-between  bg-background`}
       >
-        <Navbar />
-        <BorrowBase />
+        {" "}
+        {isMobileMenuOpen ? (
+          <MobileMenu />
+        ) : (
+          <>
+            <Navbar />
+            <BorrowBase />
+          </>
+        )}
       </main>
     </>
   );

@@ -26,7 +26,6 @@ export default function PoolPage() {
           <MobileMenu />
         ) : (
           <>
-            {" "}
             <Navbar />
             <div className="flex md:flex-row flex-col  h-[300px] w-full">
               <TvlChart />

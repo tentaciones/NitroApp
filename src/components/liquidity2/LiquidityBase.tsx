@@ -21,7 +21,7 @@ const LiquidityBase = (props: Props) => {
   return (
     <div className="md:mt-[180px] mt-[100px] text-white  w-full ">
       <p className="text-2xl px-20 md:block hidden">Liquidity Positions</p>
-      <div className="flex gap-2 text-[#D7DEEA] items-center px-5">
+      <div className="flex gap-2 text-[#D7DEEA] items-center px-5 md:hidden">
         <BsArrowLeft onClick={() => router.push("/liquidityPostions")} />
         <p>Back</p>
       </div>
