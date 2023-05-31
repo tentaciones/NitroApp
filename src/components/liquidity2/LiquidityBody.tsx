@@ -14,7 +14,7 @@ const LiquidityBody = () => {
   const { isAddLiquidity, setIsAddLiquidity }: UseLiquidyState =
     useLiquidyState() as UseLiquidyState;
   return (
-    <div className="w-[40%] h-[950px] bg-[#061727] mt-10 rounded-2xl overflow-y-scroll">
+    <div className="w-[40%] h-[950px] bg-[#061727] mt-20 rounded-2xl overflow-y-scroll">
       <div className="px-5">
         <div className="rounded-2xl h-[60px] border-[1px] border-[#21242C] mt-10 flex p-2 ">
           <div
