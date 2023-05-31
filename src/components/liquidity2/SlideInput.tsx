@@ -11,19 +11,18 @@ const SlideInput = (props: Props) => {
   };
   const railStyle = {
     backgroundColor: "#9DA5B4",
-    height: 20,
-    borderRadius: 50,
+    height: 10,
+    borderRadius: 5,
   };
   const trackStyle = {
     backgroundColor: "#12AFA6",
-    height: 20,
-    borderRadius: 50,
+    height: 10,
+    borderRadius: 5,
   };
   const handleStyle = {
     borderColor: "#12AFA6",
-    height: 30,
-    width: 30,
-    marginLeft: -8,
+    height: 20,
+    width: 20,
 
     marginTop: -4,
     backgroundColor: "#fff",

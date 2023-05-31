@@ -8,9 +8,9 @@ import { FiArrowLeft } from "react-icons/fi";
 import { SuccessCard } from "../success";
 import AddLiquidityModal from "../liquidity/AddLiquidityModal";
 
-import SetPriceRange from "../liquidity/SetPriceRange";
 import BorrowModal from "./BorrowModal";
 import { SelectPair } from "../pair";
+import SetPriceRange from "../liquidity2/SetPriceRange";
 type Props = {};
 
 const BorrowBase = (props: Props) => {
@@ -34,8 +34,9 @@ const BorrowBase = (props: Props) => {
             <div className="w-1/2">
               <SelectPair />
             </div>
-
-            <SetPriceRange />
+            <div className="w-1/2">
+              <SetPriceRange />
+            </div>
           </div>
         </div>
       </div>
