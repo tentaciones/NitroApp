@@ -11,12 +11,15 @@ import Dropdown from "./Dropdown";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { BiMenu } from "react-icons/bi";
+import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
 type Props = {};
 
 const Navbar = (props: Props) => {
   const [currentChainName, setCurrentChainName] = useState<string>();
   const [connected, setConnected] = useState(false);
-
+  const { isMobileMenuOpen, setIsMobileMenuOpen }: any = useMobileNavState();
+  const { setConnectedAddress }: any = useMobileNavState();
   const [isDropDown, setIsDropDown] = useState(false);
   const router = useRouter();
   const currentPath = router.pathname;
@@ -31,7 +34,7 @@ const Navbar = (props: Props) => {
           width={0}
           className="h-10 w-10"
         />
-        <p className="font-bold md:text-xl hidden md:block">NitroFinance</p>
+        <p className="font-bold md:text-xl ">NitroFinance</p>
       </div>
       <div className="flex items-center justify-end gap-5  h-full ">
         <div className="flex items-center justify-end ">
@@ -67,7 +70,9 @@ const Navbar = (props: Props) => {
             }`}
             onClick={() => setIsDropDown(!isDropDown)}
           >
-            <BsThreeDots className={`${isDropDown && "text-[#00FDEE] "}`} />
+            <div className="hidden md:block">
+              <BsThreeDots className={`${isDropDown && "text-[#00FDEE] "}`} />
+            </div>
           </div>
           <div>
             <Dropdown isDropDown={isDropDown} />
@@ -99,36 +104,46 @@ const Navbar = (props: Props) => {
             />
           </div>
         </div>
-        <ConnectKitButton.Custom>
-          {({
-            isConnected,
-            isConnecting,
-            show,
-            hide,
-            address,
-            ensName,
-            chain,
-          }) => {
-            setCurrentChainName(chain?.name);
-            setConnected(isConnected);
-            return (
-              <button onClick={show} className={`${styles.button} w-[200px]`}>
-                <div className="flex items-center justify-center gap-2 px-2">
-                  <IoWalletOutline className="text-3xl" />
-                  {isConnected ? (
-                    <>
-                      <p>
-                        {address?.slice(0, 5)}...{address?.slice(-4)}
-                      </p>{" "}
-                    </>
-                  ) : (
-                    "Connect Wallet"
-                  )}
-                </div>
-              </button>
-            );
-          }}
-        </ConnectKitButton.Custom>
+        {connected && !isMobileMenuOpen && (
+          <BiMenu
+            className="text-3xl"
+            onClick={() => setIsMobileMenuOpen(true)}
+          />
+        )}
+
+        {!connected && (
+          <ConnectKitButton.Custom>
+            {({
+              isConnected,
+              isConnecting,
+              show,
+              hide,
+              address,
+              ensName,
+              chain,
+            }) => {
+              setCurrentChainName(chain?.name);
+              setConnected(isConnected);
+              setConnectedAddress(address);
+              return (
+                <button onClick={show} className={`${styles.button} w-[200px]`}>
+                  <div className="flex items-center justify-center gap-2 px-2">
+                    <IoWalletOutline className="text-3xl" />
+                    {isConnected ? (
+                      <>
+                        <p>
+                          {address?.slice(0, 5)}...{address?.slice(-4)}
+                        </p>{" "}
+                      </>
+                    ) : (
+                      "Connect Wallet"
+                    )}
+                  </div>
+                </button>
+              );
+            }}
+          </ConnectKitButton.Custom>
+        )}
       </div>
     </div>
   );
