@@ -32,7 +32,7 @@ const LiquidityTable = (props: Props) => {
                 </tr>
               </thead>
             </table>
-            <div className="max-h-[900px]  overflow-y-auto">
+            <div className="max-h-[950px]  overflow-y-auto">
               <table className="w-full">
                 <tbody className="bg-[#061727] rounded-md w-full overflow-y-scroll ">
                   {demoPoolData.map(
