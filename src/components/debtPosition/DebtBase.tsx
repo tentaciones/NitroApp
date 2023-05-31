@@ -16,10 +16,10 @@ const DebtBase = (props: Props) => {
   const { isSuccessfull }: any = useSuccessState();
   return (
     <>
-      <div className=" w-full  h-full mt-[180px]   text-white px-20">
-        <div className="flex justify-between w-full">
-          <p className="text-2xl">Debt Positions</p>
-          <div className="flex text-sm bg-greenRbg p-[2px] rounded-md">
+      <div className=" w-full  h-full md:mt-[180px] mt-[100px]   text-white md:px-20 px-5">
+        <div className="flex justify-between items-center w-full mb-10">
+          <p className="md:text-2xl text-base">Debt Positions</p>
+          <div className="flex text-sm bg-greenRbg p-[2px] rounded-md  ">
             <div
               className={`w-[60px] text-center h-[40px] flex items-center justify-center  text-[#B7BECD] rounded-l-[3px] bg-[#031120] hover:cursor-pointer ${
                 isAll && "bg-greenRbg"
