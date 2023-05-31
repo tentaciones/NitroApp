@@ -37,27 +37,26 @@ const Navbar = (props: Props) => {
           <Link
             href="/swap"
             className={`${
-              currentPath === "/swap" && "bg-[#00fdee0f]"
-            }hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block`}
+              currentPath === "/swap" ? "bg-[#00fdee0f] text-[#00FDEE]" : ""
+            } hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE] rounded-sm px-5 py-1 hidden md:block`}
           >
-            <p className={`${currentPath === "/swap" && "text-[#00FDEE] "}`}>
-              Trade
-            </p>
+            <p>Trade</p>
           </Link>
-          <div className="hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block">
+          <Link
+            href="/pool"
+            className={`${
+              currentPath === "/pool" ? "bg-[#00fdee0f] text-[#00FDEE]" : ""
+            } hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE] rounded-sm px-5 py-1 hidden md:block`}
+          >
             <p>Pool</p>
-          </div>
+          </Link>
           <Link
             href="/liquidty"
             className={`${
-              currentPath === "/liquidty" && "bg-[#00fdee0f]"
+              currentPath === "/liquidty" && "bg-[#00fdee0f] text-[#00FDEE]"
             }hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 hidden md:block`}
           >
-            <p
-              className={`${currentPath === "/liquidty" && "text-[#00FDEE] "}`}
-            >
-              Liquidity
-            </p>
+            <p>Liquidity</p>
           </Link>
           <div
             className={`hover:cursor-pointer hover:bg-[#00fdee0f] hover:text-[#00FDEE]   rounded-sm px-5 py-1 ${
