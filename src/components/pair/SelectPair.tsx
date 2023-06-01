@@ -24,9 +24,11 @@ const SelectPair = (props: Props) => {
   return (
     <div className="w-full md:px-5 mt-5">
       <p>Select Pair</p>
-      <div className="flex justify-between gap-5 w-full mt-5">
+      <div className="flex justify-between gap-5 w-full mt-5 ">
         {showTokenX ? (
-          <TokenListDropDown />
+          <div className="absolute w-[33%]">
+            <TokenListDropDown />
+          </div>
         ) : (
           <div
             className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
@@ -44,7 +46,9 @@ const SelectPair = (props: Props) => {
         )}
 
         {showTokenY ? (
-          <TokenListDropDown />
+          <div className="absolute w-[33%]">
+            <TokenListDropDown />
+          </div>
         ) : (
           <div
             className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"

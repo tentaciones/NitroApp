@@ -19,7 +19,7 @@ const TokenListDropDown = (props: Props) => {
   const { showTokenX, setShowTokenX, showTokenY, setShowTokenY }: any =
     useTokenstate();
   return (
-    <div className="h-[300px] rounded-2xl flex flex-col bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-start px-5 hover:cursor-pointer overflow-y-scroll">
+    <div className="h-[300px]   rounded-2xl flex flex-col bg-[#071E33] hover:bg-[#0B2B47] w-full items-start px-5 hover:cursor-pointer overflow-y-scroll">
       <div className="w-full  flex items-center mt-5 ">
         <input
           type="text"

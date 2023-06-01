@@ -29,7 +29,7 @@ const data = {
       fill: true,
       backgroundColor: "#03333D",
       borderColor: "#00FDEE",
-      tension: 0.4,
+      tension: 0.1,
     },
   ],
 };
