@@ -24,6 +24,7 @@ const Navbar = (props: Props) => {
   const router = useRouter();
   const currentPath = router.pathname;
   console.log(currentPath);
+
   return (
     <div className="w-screen h-20 fixed flex justify-between bg-background px-5 md:px-20 text-white ">
       <div className="flex items-center gap-1 ">
@@ -122,11 +123,11 @@ const Navbar = (props: Props) => {
               ensName,
               chain,
             }) => {
-              if (connected) {
+              () => {
                 setCurrentChainName(chain?.name);
                 setConnected(isConnected);
                 setConnectedAddress(address);
-              }
+              };
 
               return (
                 <button onClick={show} className={`${styles.button} w-[200px]`}>
