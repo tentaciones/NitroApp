@@ -83,6 +83,20 @@ const MobileMenu = (props: Props) => {
           </p>
         </div>
       </div>
+      <div className="px-5 mt-5 w-full ">
+        <div className=" bg-gradient-to-r rounded-md from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-full  hover:cursor-pointer ">
+          <div className="bg-background  rounded-md h-full w-full flex items-center justify-center gap-2">
+            <p>0</p>
+            <Image
+              src={logo}
+              alt=""
+              height={0}
+              width={0}
+              className="h-[20px] w-[20px] "
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
