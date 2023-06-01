@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "@/assets/logo/nitroLogo.svg";
 import { BsThreeDots } from "react-icons/bs";
 import { ConnectKitButton } from "connectkit";
@@ -123,14 +123,18 @@ const Navbar = (props: Props) => {
               ensName,
               chain,
             }) => {
-              () => {
+              if (isConnected) {
                 setCurrentChainName(chain?.name);
                 setConnected(isConnected);
                 setConnectedAddress(address);
-              };
-
+              }
               return (
-                <button onClick={show} className={`${styles.button} w-[200px]`}>
+                <button
+                  onClick={() => {
+                    show;
+                  }}
+                  className={`${styles.button} w-[200px]`}
+                >
                   <div className="flex items-center justify-center gap-2 px-2">
                     <IoWalletOutline className="text-3xl" />
                     {isConnected ? (
