@@ -129,12 +129,7 @@ const Navbar = (props: Props) => {
                 setConnectedAddress(address);
               }
               return (
-                <button
-                  onClick={() => {
-                    show;
-                  }}
-                  className={`${styles.button} w-[200px]`}
-                >
+                <button onClick={show} className={`${styles.button} w-[200px]`}>
                   <div className="flex items-center justify-center gap-2 px-2">
                     <IoWalletOutline className="text-3xl" />
                     {isConnected ? (
