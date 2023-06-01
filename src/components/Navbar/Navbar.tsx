@@ -25,7 +25,7 @@ const Navbar = (props: Props) => {
   const currentPath = router.pathname;
   console.log(currentPath);
   return (
-    <div className="w-screen h-20 fixed flex justify-between bg-background px-5 md:px-20 text-white">
+    <div className="w-screen h-20 fixed flex justify-between bg-background px-5 md:px-20 text-white ">
       <div className="flex items-center gap-1 ">
         <Image
           src={logo.src}
@@ -122,9 +122,12 @@ const Navbar = (props: Props) => {
               ensName,
               chain,
             }) => {
-              setCurrentChainName(chain?.name);
-              setConnected(isConnected);
-              setConnectedAddress(address);
+              if (connected) {
+                setCurrentChainName(chain?.name);
+                setConnected(isConnected);
+                setConnectedAddress(address);
+              }
+
               return (
                 <button onClick={show} className={`${styles.button} w-[200px]`}>
                   <div className="flex items-center justify-center gap-2 px-2">

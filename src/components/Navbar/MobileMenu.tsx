@@ -32,31 +32,31 @@ const MobileMenu = (props: Props) => {
       </div>
       <div className="flex flex-col px-10 mt-20 gap-7 text-2xl ">
         <div
-          onClick={() => {
-            router.push("/swap");
+          onClick={async () => {
+            await router.push("/swap");
             setIsMobileMenuOpen(false);
           }}
         >
           Trade
         </div>
         <div
-          onClick={() => {
-            router.push("/pool");
+          onClick={async () => {
+            await router.push("/pool");
             setIsMobileMenuOpen(false);
           }}
         >
           Pool
         </div>
         <div
-          onClick={() => {
-            router.push("/liquidityPostions");
+          onClick={async () => {
+            await router.push("/liquidityPostions");
             setIsMobileMenuOpen(false);
           }}
         >
           Liquidity
         </div>
         <div
-          onClick={() => {
+          onClick={async () => {
             router.push("/borrow");
             setIsMobileMenuOpen(false);
           }}
@@ -64,8 +64,8 @@ const MobileMenu = (props: Props) => {
           Borrow
         </div>
         <div
-          onClick={() => {
-            router.push("/debt");
+          onClick={async () => {
+            await router.push("/debt");
             setIsMobileMenuOpen(false);
           }}
         >
