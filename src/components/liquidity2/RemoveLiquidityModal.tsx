@@ -17,7 +17,7 @@ const RemoveLiquidityModal = (props: Props) => {
 
   return (
     <>
-      <div className="h-[160%] w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
+      <div className="h-[160%]   w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
         <div className="h-[400px] w-[500px] bg-[#031120] px-10 rounded-2xl ">
           <div className="flex justify-between  mt-5  items-center">
             {" "}

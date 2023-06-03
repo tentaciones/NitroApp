@@ -14,7 +14,7 @@ import SwapSetting from "./SwapSetting";
 import ReviewSwapModal from "./ReviewSwapModal";
 import { SuccessCard } from "../success";
 import { useSuccessState } from "@/hooks/stores/successStore";
-import { BsArrowLeft } from "react-icons/bs";
+
 import { useRouter } from "next/router";
 type Props = {};
 
@@ -27,10 +27,7 @@ const SwapBase = (props: Props) => {
     <div className=" w-full  h-full mt-[180px] flex justify-center items-center text-white md:px-0 px-1">
       <div className="bg-[#061727]  h-[500px] w-[500px] rounded-2xl relative">
         <div className="flex justify-between px-5 items-center pt-5">
-          <BsArrowLeft
-            onClick={() => router.push("/borrow")}
-            className="text-2xl hover:cursor-pointer"
-          />
+          <div></div>
           <p className="font-bold text-xl">Swap</p>
           <AiOutlineSetting
             className="text-2xl hover:cursor-pointer"

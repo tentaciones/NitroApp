@@ -25,43 +25,43 @@ const SelectPair = (props: Props) => {
     <div className="w-full md:px-5 mt-5">
       <p>Select Pair</p>
       <div className="flex justify-between gap-5 w-full mt-5 ">
-        {showTokenX ? (
+        <div
+          className="h-[60px]  rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
+          onClick={() => {
+            setShowTokenY(false);
+            setShowTokenX(true);
+          }}
+        >
+          <div className="flex gap-2 ">
+            <Image src={selectedTokenX.image} alt="" height={0} width={0} />
+            <p>{selectedTokenX.name}</p>
+          </div>
+          <MdOutlineKeyboardArrowDown />
+        </div>
+
+        <div
+          className="h-[60px]  rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
+          onClick={() => {
+            setShowTokenX(false);
+            setShowTokenY(true);
+          }}
+        >
+          <div className="flex gap-2 ">
+            <Image src={selectedTokenY.image} alt="" height={0} width={0} />
+            <p>{selectedTokenY.name}</p>
+          </div>
+          <MdOutlineKeyboardArrowDown />
+        </div>
+      </div>
+      <div className="flex relative w-full">
+        {showTokenX && (
           <div className=" ">
             <TokenListDropDown />
-          </div>
-        ) : (
-          <div
-            className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
-            onClick={() => {
-              setShowTokenY(false);
-              setShowTokenX(true);
-            }}
-          >
-            <div className="flex gap-2 ">
-              <Image src={selectedTokenX.image} alt="" height={0} width={0} />
-              <p>{selectedTokenX.name}</p>
-            </div>
-            <MdOutlineKeyboardArrowDown />
           </div>
         )}
-
-        {showTokenY ? (
-          <div className=" ">
+        {showTokenY && (
+          <div className="  ">
             <TokenListDropDown />
-          </div>
-        ) : (
-          <div
-            className="h-[60px] rounded-2xl flex bg-[#071E33] hover:bg-[#0B2B47] w-1/2 items-center justify-between px-5 hover:cursor-pointer"
-            onClick={() => {
-              setShowTokenX(false);
-              setShowTokenY(true);
-            }}
-          >
-            <div className="flex gap-2 ">
-              <Image src={selectedTokenY.image} alt="" height={0} width={0} />
-              <p>{selectedTokenY.name}</p>
-            </div>
-            <MdOutlineKeyboardArrowDown />
           </div>
         )}
       </div>

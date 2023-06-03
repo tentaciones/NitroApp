@@ -11,7 +11,7 @@ type Props = {};
 const MobileLiquidtyPosition = (props: Props) => {
   const router = useRouter();
   return (
-    <div className="w-full h-screen md:hidden overflow-y-scroll text-white">
+    <div className="w-full h-screen md:hidden overflow-y-scroll text-white ">
       <div className="mt-32">
         <p className="text-2xl px-5">Liquidity Positions</p>
       </div>

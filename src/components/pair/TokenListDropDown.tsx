@@ -7,6 +7,7 @@ import {
   useSelectedTokenstate,
   useTokenstate,
 } from "@/hooks/stores/tokenStore";
+import { IoClose } from "react-icons/io5";
 type Props = {};
 
 const TokenListDropDown = (props: Props) => {
@@ -19,16 +20,31 @@ const TokenListDropDown = (props: Props) => {
   const { showTokenX, setShowTokenX, showTokenY, setShowTokenY }: any =
     useTokenstate();
   return (
-    <div className="h-[300px]   rounded-2xl flex flex-col bg-[#071E33] hover:bg-[#0B2B47] w-full items-start px-5 hover:cursor-pointer overflow-y-scroll">
+    <div className=" h-[300px] absolute w-full mt-5  border-[0.1px] border-[#383D48]   rounded-2xl flex flex-col bg-[#071E33] hover:bg-[#0B2B47]  items-start px-5 hover:cursor-pointer overflow-y-scroll">
+      <div className="flex w-full justify-between items-center mt-5 ">
+        {" "}
+        <p>select a token </p>
+        <IoClose
+          className="hover:cursor-pointer"
+          onClick={() => {
+            if (showTokenY) {
+              setShowTokenY(false);
+            } else if (showTokenX) {
+              setShowTokenX(false);
+            }
+          }}
+        />
+      </div>
+
+      <p></p>
       <div className="w-full  flex items-center mt-5 ">
         <input
           type="text"
-          className="w-full h-[30px] rounded-md outline-none bg-background border border-[#E7E7E7] hover:border-[#00FDEE] focus:border-[#00FDEE]  px-8 placeholder:text-[#828282] placeholder:font-[200]"
+          className="w-full h-[40px] rounded-2xl outline-none bg-background border border-[#E7E7E7] hover:border-[#00FDEE] focus:border-[#00FDEE]  px-8 placeholder:text-[#828282] placeholder:font-[200]"
           placeholder="search "
         />
         <CiSearch className="absolute mx-3 " />
       </div>
-
       {tokenData.map(({ image, name }) => {
         return (
           <div

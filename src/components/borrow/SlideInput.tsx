@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 type Props = {};
 
 const SlideInput = (props: Props) => {
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
   const [range, setRange] = useState([0, 100]);
 
   const handleChange = (newRange: any) => {
@@ -28,23 +33,27 @@ const SlideInput = (props: Props) => {
     backgroundColor: "#fff",
   };
   return (
-    <div>
-      <Slider
-        min={0}
-        max={100}
-        value={range}
-        onChange={handleChange}
-        range
-        trackStyle={trackStyle}
-        handleStyle={handleStyle}
-        railStyle={railStyle}
-      />
+    <>
+      {domLoaded && (
+        <div>
+          <Slider
+            min={0}
+            max={100}
+            value={range}
+            onChange={handleChange}
+            range
+            trackStyle={trackStyle}
+            handleStyle={handleStyle}
+            railStyle={railStyle}
+          />
 
-      <p className="flex justify-between hover:opacity-100 opacity-0">
-        <p>{range[0]}% </p>
-        <p> {range[1]}%</p>
-      </p>
-    </div>
+          <p className="flex justify-between hover:opacity-100 opacity-0">
+            <div>{`+${range[0]}%`} </div>
+            <div> {`${range[1]}%`}</div>
+          </p>
+        </div>
+      )}
+    </>
   );
 };
 export default SlideInput;
