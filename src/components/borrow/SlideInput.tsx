@@ -39,9 +39,11 @@ const SlideInput = (props: Props) => {
         handleStyle={handleStyle}
         railStyle={railStyle}
       />
-      {/*  <p>
-        Range: {range[0]} - {range[1]}
-      </p>*/}
+
+      <p className="flex justify-between hover:opacity-100 opacity-0">
+        <p>{range[0]}% </p>
+        <p> {range[1]}%</p>
+      </p>
     </div>
   );
 };

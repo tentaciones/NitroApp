@@ -26,7 +26,7 @@ const SelectPair = (props: Props) => {
       <p>Select Pair</p>
       <div className="flex justify-between gap-5 w-full mt-5 ">
         {showTokenX ? (
-          <div className="absolute w-[33%]">
+          <div className=" ">
             <TokenListDropDown />
           </div>
         ) : (
@@ -46,7 +46,7 @@ const SelectPair = (props: Props) => {
         )}
 
         {showTokenY ? (
-          <div className="absolute w-[33%]">
+          <div className=" ">
             <TokenListDropDown />
           </div>
         ) : (

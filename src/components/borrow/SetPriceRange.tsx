@@ -7,6 +7,7 @@ import {
 } from "@/hooks/stores/addLiquidityStore";
 import { useSuccessState } from "@/hooks/stores/successStore";
 import { useBorrowState } from "@/hooks/stores/borrowstores";
+import { useSelectedTokenstate } from "@/hooks/stores/tokenStore";
 type Props = {};
 
 const SetPriceRange = (props: Props) => {
@@ -17,6 +18,11 @@ const SetPriceRange = (props: Props) => {
 
   const { isSuccessfull, setIsSuccessfull }: any = useSuccessState();
   const { isAddLiquidity }: any = useLiquidyState();
+  const {
+    selectedTokenX,
+
+    selectedTokenY,
+  }: any = useSelectedTokenstate();
 
   return (
     <div className="w-full md:px-5 mt-5">
@@ -32,7 +38,7 @@ const SetPriceRange = (props: Props) => {
                   className="sr-only peer"
                   onClick={() => setIsBelowPriceRange(!isBelowPriceRange)}
                 />
-                <div className="w-11 h-6 bg-[#00FDEE] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00FDEE] dark:peer-focus:ring-[#00FDEE] rounded-full peer dark:bg-[#00FDEE] peer-checked:after:translate-x-full peer-checked:after:border-[#061727] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#045651] after:border-[#045651] after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-[#045651] peer-checked:bg-[#00FDEE]"></div>
+                <div className="w-11 h-6 bg-[#00FDEE] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00FDEE] dark:peer-focus:ring-[#00FDEE] rounded-full peer dark:bg-[#00FDEE] peer-checked:after:translate-x-full peer-checked:after:border-[#045651] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#045651] after:border-[#045651] after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-[#045651] peer-checked:bg-[#00FDEE]"></div>
               </label>
               {isBelowPriceRange ? (
                 <p className="text-sm text-[#D7DEEA]">Below Price</p>
@@ -40,6 +46,13 @@ const SetPriceRange = (props: Props) => {
                 <p className="text-sm text-[#D7DEEA]">Above Price</p>
               )}
             </div>
+          </div>
+          <div className="text-sm text-[#D7DEEA] flex gap-3 justify-center mt-5">
+            <p> Current Price:</p>
+            <p>0.0113165</p>
+            <p>
+              {selectedTokenX.name} per {selectedTokenY.name}
+            </p>
           </div>
 
           <div className=" mt-5">
