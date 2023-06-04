@@ -40,12 +40,41 @@ const DebtBase = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className={styles.debtCardMainContainer}>
-          <div className={styles.theCard}>
-            <DebtCard />
-            <DebtCardBack />
+        {!isAll ? (
+          <div className={styles.debtCardMainContainer}>
+            <div className={styles.theCard}>
+              <DebtCard />
+              <DebtCardBack />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex wrap gap-2">
+            <div className={styles.debtCardMainContainer}>
+              <div className={styles.theCard}>
+                <DebtCard />
+                <DebtCardBack />
+              </div>
+            </div>{" "}
+            <div className={styles.debtCardMainContainer}>
+              <div className={styles.theCard}>
+                <DebtCard />
+                <DebtCardBack />
+              </div>
+            </div>{" "}
+            <div className={styles.debtCardMainContainer}>
+              <div className={styles.theCard}>
+                <DebtCard />
+                <DebtCardBack />
+              </div>
+            </div>{" "}
+            <div className={styles.debtCardMainContainer}>
+              <div className={styles.theCard}>
+                <DebtCard />
+                <DebtCardBack />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       {isRepay && (
         <div className="absolute top-0 w-full h-screen">

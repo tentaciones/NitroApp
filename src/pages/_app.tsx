@@ -15,7 +15,7 @@ const client = createClient(
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={client}>
-      <ConnectKitProvider theme="nouns">
+      <ConnectKitProvider theme="midnight">
         <Component {...pageProps} />{" "}
       </ConnectKitProvider>
     </WagmiConfig>

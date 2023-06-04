@@ -22,7 +22,7 @@ const DebtCardBack = (props: Props) => {
         <div className="bg-greenRbg h-[180px] w-full flex flex-col gap-2 text-white border-greenBorderRbg border rounded-md px-3 text-sm justify-center">
           <button className={styles.button}>Debt Rollover</button>
 
-          <button className={styles.blacklist}>Black List </button>
+          <button className={styles.button}>Black List </button>
           <div
             className="flex justify-end items-center"
             onClick={() => {
