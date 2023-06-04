@@ -16,7 +16,7 @@ const DebtBase = (props: Props) => {
   const { isSuccessfull }: any = useSuccessState();
   return (
     <>
-      <div className=" w-full  h-full md:mt-[180px] mt-[100px]   text-white md:px-20 px-5">
+      <div className=" w-full  h-full md:mt-[180px] mt-[100px]   text-white md:px-[60px] px-5 fixed">
         <div className="flex justify-between items-center w-full mb-10">
           <p className="md:text-2xl text-base">Debt Positions</p>
           <div className="flex text-sm bg-greenRbg p-[2px] rounded-md  ">
@@ -40,41 +40,74 @@ const DebtBase = (props: Props) => {
             </div>
           </div>
         </div>
-        {!isAll ? (
-          <div className={styles.debtCardMainContainer}>
-            <div className={styles.theCard}>
-              <DebtCard />
-              <DebtCardBack />
-            </div>
-          </div>
-        ) : (
-          <div className="flex wrap gap-2">
-            <div className={styles.debtCardMainContainer}>
-              <div className={styles.theCard}>
-                <DebtCard />
-                <DebtCardBack />
-              </div>
-            </div>{" "}
-            <div className={styles.debtCardMainContainer}>
-              <div className={styles.theCard}>
-                <DebtCard />
-                <DebtCardBack />
-              </div>
-            </div>{" "}
-            <div className={styles.debtCardMainContainer}>
-              <div className={styles.theCard}>
-                <DebtCard />
-                <DebtCardBack />
-              </div>
-            </div>{" "}
+        <div className="overflow-y-scroll h-full">
+          {!isAll ? (
             <div className={styles.debtCardMainContainer}>
               <div className={styles.theCard}>
                 <DebtCard />
                 <DebtCardBack />
               </div>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>{" "}
+              <div className={styles.debtCardMainContainer}>
+                <div className={styles.theCard}>
+                  <DebtCard />
+                  <DebtCardBack />
+                </div>
+              </div>
+            </div>
+          )}
+          <div className="mb-[300px]"></div>
+        </div>
       </div>
       {isRepay && (
         <div className="absolute top-0 w-full h-screen">
