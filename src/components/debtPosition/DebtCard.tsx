@@ -32,8 +32,8 @@ const DebtCard = (props: Props) => {
             <p>10%</p>
           </div>
           <div className="flex justify-between ">
-            <p>DeBt ID </p>
-            <p>80%</p>
+            <p>Debt ID </p>
+            <p>80</p>
           </div>
           <div className="flex justify-between ">
             <p>Collateral Asset</p>
