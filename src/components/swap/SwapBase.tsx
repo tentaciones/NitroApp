@@ -8,7 +8,9 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 import {
   usePreviewSwapState,
+  useSelectedSwapTokenstate,
   useSettingsState,
+  useSwapTokenstate,
 } from "@/hooks/stores/swapStore";
 import SwapSetting from "./SwapSetting";
 import ReviewSwapModal from "./ReviewSwapModal";
@@ -16,13 +18,30 @@ import { SuccessCard } from "../success";
 import { useSuccessState } from "@/hooks/stores/successStore";
 
 import { useRouter } from "next/router";
+import TokenlistModal from "./TokenlistModal";
 type Props = {};
 
 const SwapBase = (props: Props) => {
   const { isSettingOpen, setIsSettingOpen }: any = useSettingsState();
   const { isPreviewSwap, setIsPreviewSwap }: any = usePreviewSwapState();
   const { isSuccessfull }: any = useSuccessState();
-  const router = useRouter();
+  const [newTokenX, setNewTokenX] = useState<any>();
+  const [newTokenY, setNewTokenY] = useState<any>();
+  const { showTokenX, setShowTokenX, showTokenY, setShowTokenY }: any =
+    useSwapTokenstate();
+  const {
+    selectedTokenX,
+    setSelectedTokenX,
+    selectedTokenY,
+    setSelectedTokenY,
+  }: any = useSelectedSwapTokenstate();
+
+  const switchHandler = () => {
+    setNewTokenY(selectedTokenX);
+    setNewTokenX(selectedTokenY);
+    setSelectedTokenY(selectedTokenX);
+    setSelectedTokenX(selectedTokenY);
+  };
   return (
     <div className=" w-full  h-full mt-[180px] flex justify-center items-center text-white md:px-0 px-1">
       <div className="bg-[#061727]  h-[500px] w-[500px] rounded-2xl relative">
@@ -43,9 +62,12 @@ const SwapBase = (props: Props) => {
                 className="w-[70%] bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
                 placeholder="0.0 "
               />
-              <div className="flex w-[30%] gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1">
-                <Image src={eth} alt="" height={0} width={0} />
-                <p className="text-sm">ETH</p>
+              <div
+                className="flex w-[30%] gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1"
+                onClick={() => setShowTokenX(true)}
+              >
+                <Image src={selectedTokenX.image} alt="" height={0} width={0} />
+                <p className="text-sm">{selectedTokenX.name}</p>
               </div>
             </div>
 
@@ -57,7 +79,10 @@ const SwapBase = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center text-3xl mt-3 text-[#00FDEE]">
+        <div
+          className="flex justify-center text-3xl mt-3 text-[#00FDEE] hover:cursor-pointer"
+          onClick={() => switchHandler()}
+        >
           <FaLongArrowAltUp />
           <FaLongArrowAltDown className="-ml-3" />
         </div>
@@ -69,9 +94,12 @@ const SwapBase = (props: Props) => {
                 className="w-[70%] bg-[#071E33] outline-none px-5 text-xl placeholder:text-[#6A84A0]"
                 placeholder="0.0 "
               />
-              <div className="flex w-[30%] gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1">
-                <Image src={usdt} alt="" height={0} width={0} />
-                <p className="text-sm">ETH</p>
+              <div
+                className="flex w-[30%] gap-1 hover:cursor-pointer bg-greenRbg border border-greenBorderRbg h-[40px] items-center justify-center rounded-3xl px-1"
+                onClick={() => setShowTokenY(true)}
+              >
+                <Image src={selectedTokenY.image} alt="" height={0} width={0} />
+                <p className="text-sm">{selectedTokenY.name}</p>
               </div>
             </div>
 
@@ -107,6 +135,17 @@ const SwapBase = (props: Props) => {
       {isSuccessfull && !isPreviewSwap && (
         <div className="absolute top-0 w-full h-screen">
           <SuccessCard text="Swapped 0.003 EtH/USDt" arbiscanLink="" />
+        </div>
+      )}
+
+      {showTokenX && (
+        <div className="absolute top-0 w-full h-screen">
+          <TokenlistModal />
+        </div>
+      )}
+      {showTokenY && (
+        <div className="absolute top-0 w-full h-screen">
+          <TokenlistModal />
         </div>
       )}
     </div>
