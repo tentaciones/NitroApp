@@ -21,7 +21,6 @@ const AllPools = () => {
                   <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
                     TVL
                   </th>
-
                   <th scope="col" className="px-6 py-4 w-[15%] font-[200]">
                     Trading Volumes
                   </th>
