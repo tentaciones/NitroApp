@@ -45,7 +45,7 @@ const TokenListDropDown = (props: Props) => {
         />
         <CiSearch className="absolute mx-3 " />
       </div>
-      {tokenData.map(({ image, name }) => {
+      {tokenData.map(({ image, name, address }) => {
         return (
           <div
             key={name}
@@ -55,19 +55,29 @@ const TokenListDropDown = (props: Props) => {
                 setSelectedTokenX({
                   name,
                   image,
+                  address,
                 });
+
                 setShowTokenX(false);
               } else if (showTokenY) {
                 setSelectedTokenY({
                   name,
                   image,
+                  address,
                 });
+
                 setShowTokenY(false);
               }
             }}
           >
             {" "}
-            <Image src={image} alt="" height={0} width={0} />
+            <Image
+              src={image}
+              alt=""
+              height={0}
+              width={0}
+              className="h-6 w-6"
+            />
             <p>{name}</p>
           </div>
         );

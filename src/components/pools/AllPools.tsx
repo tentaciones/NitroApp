@@ -1,10 +1,12 @@
 import { demoPoolData } from "@/constants/pooldata";
 import Image from "next/image";
 import React from "react";
+import eth from "@/assets/Eth logo.svg";
+import nitro from "@/assets/logo/nitroLogo.svg";
+import { useRouter } from "next/router";
 
-type Props = {};
-
-const AllPools = (props: Props) => {
+const AllPools = () => {
+  const router = useRouter();
   return (
     <div className=" flex-col mt-10 md:flex hidden px-5">
       <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -19,12 +21,7 @@ const AllPools = (props: Props) => {
                   <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
                     TVL
                   </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    Token X
-                  </th>
-                  <th scope="col" className="px-6 py-4 w-[10%] font-[200]">
-                    Token Y
-                  </th>
+
                   <th scope="col" className="px-6 py-4 w-[15%] font-[200]">
                     Trading Volumes
                   </th>
@@ -40,64 +37,47 @@ const AllPools = (props: Props) => {
             <div className="max-h-[500px]  overflow-y-auto">
               <table className="w-full">
                 <tbody className="bg-[#061727] rounded-md w-full overflow-y-scroll ">
-                  {demoPoolData.map(
-                    ({
-                      assetXSymbol,
-                      assetYSymbol,
-                      assetXLogo,
-                      assetYLogo,
-                      TVL,
-                      TokenX,
-                      TokenY,
-                      TradingVolumes,
-                      DebtRatio,
-                      NitroPointsGenerated,
-                    }) => {
-                      return (
-                        <tr className="border-b border-[#00040F] " key={TokenX}>
-                          <td className="whitespace-nowrap px-6 py-4 font-medium w-[25%]">
-                            <div className="flex px-5 items-center ">
-                              <Image
-                                src={assetXLogo.src}
-                                alt=""
-                                width="0"
-                                height="0"
-                                className="-mx-3 h-7 w-7"
-                              />
-                              <Image
-                                src={assetYLogo.src}
-                                alt=""
-                                width="0"
-                                height="0"
-                                className="  h-7 w-7"
-                              />
-                              <p className="px-2">
-                                {assetXSymbol}/{assetYSymbol}
-                              </p>
-                            </div>
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
-                            {TVL}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
-                            {TokenX}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] ">
-                            {TokenY}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[15%] text-center">
-                            {TradingVolumes}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[10%] text-center">
-                            {DebtRatio}
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 w-[20%] text-center">
-                            {NitroPointsGenerated}
-                          </td>
-                        </tr>
-                      );
-                    }
-                  )}
+                  {demoPoolData.map(({ TokenX }) => {
+                    return (
+                      <tr
+                        className="border-b border-[#00040F] "
+                        key={TokenX}
+                        onClick={() => router.push("/liquidity")}
+                      >
+                        <td className="whitespace-nowrap px-6 py-4 font-medium w-[25%]">
+                          <div className="flex px-5 items-center ">
+                            <Image
+                              src={eth}
+                              alt=""
+                              width="0"
+                              height="0"
+                              className="-mx-1 h-7 w-7"
+                            />
+                            <Image
+                              src={nitro}
+                              alt=""
+                              width="0"
+                              height="0"
+                              className="  h-7 w-7"
+                            />
+                            <p className="px-2">WETH/NIT</p>
+                          </div>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 w-[10%] animate-pulse">
+                          <div className="w-full bg-[#031120]  h-10 rounded-xl"></div>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 w-[10%] animate-pulse">
+                          <div className="w-full bg-[#031120]  h-10 rounded-xl"></div>
+                        </td>{" "}
+                        <td className="whitespace-nowrap px-6 py-4 w-[10%] animate-pulse">
+                          <div className="w-full bg-[#031120]  h-10 rounded-xl"></div>
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4 w-[10%] animate-pulse">
+                          <div className="w-full bg-[#031120]  h-10 rounded-xl"></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

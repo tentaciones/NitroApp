@@ -4,12 +4,18 @@ import Head from "next/head";
 import { TvlChart, VolumeChart } from "@/components/charts";
 import { Pool } from "@/components/pools";
 import { MobileMenu, Navbar } from "@/components/Navbar";
-import { LiquidityBase } from "@/components/liquidity2";
+import { LiquidityBase } from "@/components/liquidity";
 import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
+import UpdateManager from "@/components/helper/UpdateManager";
+import { useAddLiquidityPreviewState } from "@/hooks/stores/addLiquidityStore";
+import { useSuccessState } from "@/hooks/stores/successStore";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Liquidity() {
   const { isMobileMenuOpen }: any = useMobileNavState();
+  const { isPreviewPositionAdd, isPreviewPositionRemove }: any =
+    useAddLiquidityPreviewState();
+  const { isSuccessfull }: any = useSuccessState();
   return (
     <>
       <Head>
@@ -20,9 +26,13 @@ export default function Liquidity() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between  bg-background`}
+        className={
+          isPreviewPositionAdd || isPreviewPositionRemove || isSuccessfull
+            ? `flex min-h-screen flex-col items-center justify-between  bg-background h-screen overflow-y-hidden`
+            : "flex min-h-screen flex-col items-center justify-between  bg-background "
+        }
       >
-        {" "}
+        <UpdateManager />{" "}
         {isMobileMenuOpen ? (
           <MobileMenu />
         ) : (

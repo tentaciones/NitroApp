@@ -14,8 +14,8 @@ const SuccessCard: FC<Props> = ({ text, arbiscanLink }) => {
   return (
     <>
       {isSuccessfull && (
-        <div className="h-[145%] px-2 w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
-          <div className="h-[300px] w-[400px] bg-[#031120] px-10 rounded-2xl ">
+        <div className="h-screen px-2 w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  flex items-center justify-center text-white ">
+          <div className="h-[300px] w-[400px]  bg-[#031120] px-10 rounded-2xl ">
             <div className="flex justify-end pt-5">
               <IoClose
                 className="text-2xl hover:cursor-pointer"

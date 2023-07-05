@@ -1,32 +1,65 @@
-import React, { useState } from "react";
-import styles from "@/styles/Home.module.css";
+import React from "react";
+import SuccessCard from "./SuccessCard";
+import AddLiquidityModal from "./AddLiquidityModal";
+import LiquidityBody from "./LiquidityBody";
 import LiquidityTable from "./LiquidityTable";
-import AddLiquidity from "./AddLiquidity";
-import { useCreatePositionState } from "@/hooks/stores/addLiquidityStore";
+import { useSuccessState } from "@/hooks/stores/successStore";
+import {
+  useAddLiquidityPreviewState,
+  useLiquidityTxnHashState,
+  useCreatePositionPreviewState,
+} from "@/hooks/stores/addLiquidityStore";
+import RemoveLiquidityModal from "./RemoveLiquidityModal";
+import { BsArrowLeft } from "react-icons/bs";
+import { useRouter } from "next/router";
+import {
+  TAddLiquidityPreviewState,
+  TLiquidityTxnHashState,
+  TSuccessState,
+} from "../helper/types";
 type Props = {};
 
 const LiquidityBase = (props: Props) => {
-  const { isCreateMewPosition, setIsCreateNewPosition }: any =
-    useCreatePositionState();
+  const { isPreviewPositionAdd, isPreviewPositionRemove } =
+    useAddLiquidityPreviewState() as TAddLiquidityPreviewState;
+
+  const { LiquidityTxnHash } =
+    useLiquidityTxnHashState() as TLiquidityTxnHashState;
+  const { isSuccessfull, setIsSuccessfull } =
+    useSuccessState() as TSuccessState;
+  const router = useRouter();
   return (
-    <div className="mt-[180px] text-white  w-full">
-      {isCreateMewPosition ? (
-        <div className="">
-          <AddLiquidity />
-        </div>
-      ) : (
-        <>
-          <div className="flex justify-between  items-center px-[150px]">
-            <p className="text-2xl font-bold">Liquidity Positions</p>
-            <button
-              className={`${styles.button} w-[200px]`}
-              onClick={() => setIsCreateNewPosition(true)}
-            >
-              + Create New Position
-            </button>
-          </div>
+    <div className="md:mt-[180px] mt-[100px] text-white  w-full  ">
+      <p className="text-2xl px-20 md:block hidden">Liquidity Positions</p>
+      <div className="flex gap-2 text-[#D7DEEA] items-center px-5 md:hidden">
+        <BsArrowLeft onClick={() => router.push("/liquidityPostions")} />
+        <p>Back</p>
+      </div>
+      {!isPreviewPositionAdd && !isPreviewPositionRemove && !isSuccessfull && (
+        <div className="flex  gap-3 md:px-20 px-5 ">
           <LiquidityTable />
-        </>
+          <LiquidityBody />
+        </div>
+      )}
+
+      {isPreviewPositionAdd && (
+        <div className="absolute top-0 w-full h-screen ">
+          <AddLiquidityModal />
+        </div>
+      )}
+      {isPreviewPositionRemove && (
+        <div className="absolute top-0 w-full h-screen">
+          <RemoveLiquidityModal />
+        </div>
+      )}
+
+      {isSuccessfull && !isPreviewPositionAdd && (
+        <div className="absolute top-0 w-full h-screen">
+          <SuccessCard
+            text=""
+            arbiscanLink={`https://testnet.arbiscan.io/tx/${LiquidityTxnHash}`}
+          />
+        </div>
       )}
     </div>
   );

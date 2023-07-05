@@ -1,0 +1,1826 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroFactory",
+        "name": "_factory",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IWETH",
+        "name": "_weth",
+        "type": "address"
+      },
+      {
+        "internalType": "contract INitroDebtManager",
+        "name": "_debtmanager",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "bp",
+        "type": "uint256"
+      }
+    ],
+    "name": "BinHelper__BinStepOverflows",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "BinHelper__IdOverflows",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "x",
+        "type": "uint256"
+      },
+      {
+        "internalType": "int256",
+        "name": "y",
+        "type": "int256"
+      }
+    ],
+    "name": "Math128x128__PowerUnderflow",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroPair__ImpermanentLossOverflow",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountXMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountX",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountYMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountY",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__AmountSlippageCaught",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "currentTimestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__DeadlineExceeded",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "idDesired",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "idSlippage",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__IdDesiredOverflows",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "int256",
+        "name": "id",
+        "type": "int256"
+      }
+    ],
+    "name": "NitroRouter__IdOverflows",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "activeIdDesired",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "idSlippage",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "activeId",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__IdSlippageCaught",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__InsufficientAmountOut",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "wrongToken",
+        "type": "address"
+      }
+    ],
+    "name": "NitroRouter__InvalidTokenPath",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroRouter__LengthsMismatch",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountInMax",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__MaxAmountInExceeded",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroRouter__NotFactoryOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroRouter__NotOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenX",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenY",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "binStep",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__PairNotCreated",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroRouter__SenderIsNotWETH",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenX",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenY",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountX",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountY",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "msgValue",
+        "type": "uint256"
+      }
+    ],
+    "name": "NitroRouter__WrongETHLiquidityParameters",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NitroRouter__WrongTokenOrder",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Nitro_RouterZeroAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "UD60x18",
+        "name": "x",
+        "type": "uint256"
+      }
+    ],
+    "name": "PRBMath_UD60x18_Sqrt_Overflow",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Uint256x256Math__MulDivOverflow",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Uint256x256Math__MulShiftOverflow",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenX",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenY",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "binStep",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenID",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "_bin",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "Blacklist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isAbove",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOutMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint24[]",
+            "name": "_bins",
+            "type": "uint24[]"
+          }
+        ],
+        "internalType": "struct INitroRouter.Params",
+        "name": "borrowParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "Borrow",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "MintDebtId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "nextcounter",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isAbove",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOutMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint24[]",
+            "name": "_bins",
+            "type": "uint24[]"
+          }
+        ],
+        "internalType": "struct INitroRouter.Params",
+        "name": "repayParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "Repay",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isAbove",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOutMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint24[]",
+            "name": "_bins",
+            "type": "uint24[]"
+          }
+        ],
+        "internalType": "struct INitroRouter.Params",
+        "name": "repayParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "RepayBlackListed",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isAbove",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amountIn",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountOutMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tokenID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint24[]",
+            "name": "_bins",
+            "type": "uint24[]"
+          }
+        ],
+        "internalType": "struct INitroRouter.Params",
+        "name": "rollOverParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "Rollover",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "Weth",
+    "outputs": [
+      {
+        "internalType": "contract IWETH",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountX",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountY",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountXMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountYMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activeIdDesired",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "idSlippage",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256[]",
+            "name": "deltaIds",
+            "type": "int256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "distributionX",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "distributionY",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct INitroRouter.LiquidityParams",
+        "name": "liquidityParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "addLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "depositIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "liquidityMinted",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "tokenX",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "tokenY",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "binStep",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountX",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountY",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountXMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountYMin",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "activeIdDesired",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "idSlippage",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256[]",
+            "name": "deltaIds",
+            "type": "int256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "distributionX",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "distributionY",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct INitroRouter.LiquidityParams",
+        "name": "liquidityParams",
+        "type": "tuple"
+      }
+    ],
+    "name": "addLiquidityETH",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "depositIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "liquidityMinted",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenX",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenY",
+        "type": "address"
+      },
+      {
+        "internalType": "uint24",
+        "name": "activeId",
+        "type": "uint24"
+      },
+      {
+        "internalType": "uint16",
+        "name": "binStep",
+        "type": "uint16"
+      }
+    ],
+    "name": "createNitroPair",
+    "outputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "debtManager",
+    "outputs": [
+      {
+        "internalType": "contract INitroDebtManager",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "factory",
+    "outputs": [
+      {
+        "internalType": "contract INitroFactory",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAbove",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getBorrowOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "fee",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "remainingAmountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      }
+    ],
+    "name": "getIdFromPrice",
+    "outputs": [
+      {
+        "internalType": "uint24",
+        "name": "",
+        "type": "uint24"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint24",
+        "name": "id",
+        "type": "uint24"
+      }
+    ],
+    "name": "getPriceFromId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAbove",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_CollateralAmountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getRepayAmountIn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "remainingAmountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAbove",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getRepayAmountOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "fee",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "remainingAmountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAbove",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getRepayBlackListAmountOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "remainingAmountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isAbove",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_CollateralAmountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getRepayBlackListedAmountIn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "remainingAmountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint24[]",
+        "name": "bins",
+        "type": "uint24[]"
+      }
+    ],
+    "name": "getRollOverAmount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "swapForY",
+        "type": "bool"
+      }
+    ],
+    "name": "getSwapIn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "fee",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroPair",
+        "name": "pair",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "swapForY",
+        "type": "bool"
+      }
+    ],
+    "name": "getSwapOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "fee",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nitroPoint",
+    "outputs": [
+      {
+        "internalType": "contract INitroPoint",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenX",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenY",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "binStep",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountXMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountYMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "removeLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountX",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountY",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "binStep",
+        "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountTokenMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountETHMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "removeLiquidityETH",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountToken",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountETH",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "NitroPoint",
+        "type": "address"
+      }
+    ],
+    "name": "setNitroPoint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapETHForExactTokens",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "amountsIn",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactETHForTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactETHForTokensSupportingFeeOnTransferTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOutMinETH",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactTokensForETH",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOutMinETH",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactTokensForETHSupportingFeeOnTransferTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOutMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactTokensForTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountOutMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapExactTokensForTokensSupportingFeeOnTransferTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountETHOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountInMax",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapTokensForExactETH",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "amountsIn",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountInMax",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairBinSteps",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokenPath",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      }
+    ],
+    "name": "swapTokensForExactTokens",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "amountsIn",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "sweep",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract INitroToken",
+        "name": "_nitroToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "sweepNitroToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]

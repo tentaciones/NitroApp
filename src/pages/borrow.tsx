@@ -6,10 +6,15 @@ import { Pool } from "@/components/pools";
 import { MobileMenu, Navbar } from "@/components/Navbar";
 import { BorrowBase } from "@/components/borrow";
 import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
+import { useBorrowState } from "@/hooks/stores/borrowstores";
+import { useSuccessState } from "@/hooks/stores/successStore";
+import UpdateManager from "@/components/helper/UpdateManager";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Borrow() {
   const { isMobileMenuOpen }: any = useMobileNavState();
+  const { isPreview }: any = useBorrowState();
+  const { isSuccessfull }: any = useSuccessState();
   return (
     <>
       <Head>
@@ -20,9 +25,13 @@ export default function Borrow() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between  bg-background`}
+        className={
+          isPreview || isSuccessfull
+            ? `flex h-screen flex-col items-center justify-between  bg-background`
+            : `flex min-h-screen flex-col items-center justify-between  bg-background`
+        }
       >
-        {" "}
+        <UpdateManager />{" "}
         {isMobileMenuOpen ? (
           <MobileMenu />
         ) : (

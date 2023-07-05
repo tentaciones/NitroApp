@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { TSlideInputState } from "../helper/types";
+import { useBorrowSlideInputState } from "@/hooks/stores/borrowstores";
 type Props = {};
 
 const SlideInput = (props: Props) => {
@@ -9,7 +11,7 @@ const SlideInput = (props: Props) => {
   useEffect(() => {
     setDomLoaded(true);
   }, []);
-  const [range, setRange] = useState([0, 100]);
+  const { range, setRange } = useBorrowSlideInputState() as TSlideInputState;
 
   const handleChange = (newRange: any) => {
     setRange(newRange);
@@ -46,11 +48,6 @@ const SlideInput = (props: Props) => {
             handleStyle={handleStyle}
             railStyle={railStyle}
           />
-
-          <p className="flex justify-between hover:opacity-100 opacity-0">
-            <div>{`+${range[0]}%`} </div>
-            <div> {`${range[1]}%`}</div>
-          </p>
         </div>
       )}
     </>

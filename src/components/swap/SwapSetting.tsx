@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import { useCustomSlippageState } from "@/hooks/stores/swapStore";
+import React, { useEffect, useState } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
+import { TCustomSlippageState } from "../helper/types";
 type Props = {};
 
 const SwapSetting = (props: Props) => {
   const [isShowMore, setIsShowMore] = useState(false);
   const [isCustom, setIsCustom] = useState(false);
+  const { customSlippage, setCustomSlippage } =
+    useCustomSlippageState() as TCustomSlippageState;
+
+  //sets custom slippage
+  useEffect(() => {
+    console.log("customSlippage", customSlippage);
+    if (Number(customSlippage) === 100 || Number(customSlippage) > 100) {
+      setCustomSlippage("100");
+    }
+  }, [customSlippage]);
   return (
     <div
       className={`${
@@ -58,13 +70,19 @@ const SwapSetting = (props: Props) => {
               <p>Custom</p>
             </div>
           </div>
-          <div className="flex bg-[#091E33] w-[30%] rounded-md px-1 items-center">
-            <input
-              type="text"
-              className="w-full outline-none bg-[#091E33] px-2 rounded-md text-sm "
-            />
-            <p className="text-sm">%</p>
-          </div>
+          {!isCustom && (
+            <div className="flex bg-[#091E33] w-[30%] rounded-md px-1 items-center">
+              <input
+                type="text"
+                className="w-full outline-none bg-[#091E33] px-2 rounded-md text-sm "
+                value={customSlippage}
+                onChange={(e) => {
+                  setCustomSlippage(e.target.value);
+                }}
+              />
+              <p className="text-sm">%</p>
+            </div>
+          )}
         </div>
       )}
     </div>

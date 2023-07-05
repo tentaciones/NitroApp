@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { useSlideInputState } from "@/hooks/stores/addLiquidityStore";
+import { TSlideInputState } from "../helper/types";
 type Props = {};
 
 const SlideInput = (props: Props) => {
-  const [range, setRange] = useState([0, 100]);
+  const { range, setRange } = useSlideInputState() as TSlideInputState;
 
   const handleChange = (newRange: any) => {
     setRange(newRange);
   };
   const railStyle = {
     backgroundColor: "#9DA5B4",
-    height: 20,
-    borderRadius: 50,
+    height: 10,
+    borderRadius: 5,
   };
   const trackStyle = {
     backgroundColor: "#12AFA6",
-    height: 20,
-    borderRadius: 50,
+    height: 10,
+    borderRadius: 5,
   };
   const handleStyle = {
     borderColor: "#12AFA6",
-    height: 30,
-    width: 30,
-    marginLeft: -8,
+    height: 20,
+    width: 20,
 
     marginTop: -4,
     backgroundColor: "#fff",
@@ -39,10 +40,8 @@ const SlideInput = (props: Props) => {
         trackStyle={trackStyle}
         handleStyle={handleStyle}
         railStyle={railStyle}
+        allowCross={false}
       />
-      {/*  <p>
-        Range: {range[0]} - {range[1]}
-      </p>*/}
     </div>
   );
 };

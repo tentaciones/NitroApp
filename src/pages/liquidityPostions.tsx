@@ -4,9 +4,9 @@ import Head from "next/head";
 import { TvlChart, VolumeChart } from "@/components/charts";
 import { Pool } from "@/components/pools";
 import { MobileMenu, Navbar } from "@/components/Navbar";
-import { LiquidityBase } from "@/components/liquidity2";
+import { LiquidityBase } from "@/components/liquidity";
 import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
-import MobileLiquidtyPosition from "@/components/liquidity2/MobileLiquidtyPosition";
+import MobileLiquidtyPosition from "@/components/liquidity/MobileLiquidtyPosition";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function LiquidityPostions() {
@@ -30,6 +30,7 @@ export default function LiquidityPostions() {
           <>
             <Navbar />
             <MobileLiquidtyPosition />
+
             <div className="mb-20"></div>
           </>
         )}

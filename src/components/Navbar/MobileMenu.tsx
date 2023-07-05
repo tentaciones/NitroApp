@@ -1,17 +1,35 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { IoClose, IoWalletOutline } from "react-icons/io5";
 import logo from "@/assets/logo/nitroLogo.svg";
 import styles from "@/styles/Home.module.css";
 import { useMobileNavState } from "@/hooks/stores/mobileMenuStore";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAccount } from "wagmi";
+import { getPointBalance } from "../helper/utils";
 type Props = {};
 
 const MobileMenu = (props: Props) => {
   const { isMobileMenuOpen, setIsMobileMenuOpen, connectedAddress }: any =
     useMobileNavState();
+  const { address } = useAccount();
+  const [balance, setBalance] = useState();
   const router = useRouter();
+  const fetchPointBalance = async () => {
+    if (navigator.onLine) {
+      try {
+        const { balance } = await getPointBalance();
+        setBalance(balance);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log("User is offline");
+    }
+  };
+
+  fetchPointBalance();
   return (
     <div className="h-screen md:hidden text-white w-full">
       <div className="flex justify-between items-center  mt-5 px-5">
@@ -79,14 +97,14 @@ const MobileMenu = (props: Props) => {
           <IoWalletOutline className="text-3xl" />
           <p>
             {" "}
-            {connectedAddress?.slice(0, 5)}...{connectedAddress?.slice(-4)}
+            {address?.slice(0, 5)}...{address?.slice(-4)}
           </p>
         </div>
       </div>
       <div className="px-5 mt-5 w-full ">
         <div className=" bg-gradient-to-r rounded-md from-cyan-500 to-blue-500 px-[2px] py-[2px]  h-[50px] w-full  hover:cursor-pointer ">
           <div className="bg-background  rounded-md h-full w-full flex items-center justify-center gap-2">
-            <p>0</p>
+            <p>{balance}</p>
             <Image
               src={logo}
               alt=""
