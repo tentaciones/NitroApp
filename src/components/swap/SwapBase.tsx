@@ -32,6 +32,7 @@ import {
 } from "../helper/types";
 import IERC20Abi from "@/constants/abis/IERC20.json";
 import { useAccount } from "wagmi";
+import { timeStamp } from "console";
 type Props = {};
 
 const SwapBase = (props: Props) => {
@@ -272,7 +273,7 @@ const SwapBase = (props: Props) => {
     );
     let tempSigner = tempProvider.getSigner();
     let swapContract = new ethers.Contract(
-      NITRO_ROUTER,
+      "0x5d8165adD2156bFD51E6CcCb15293db07Fe8ba07",
       nitroRouterAbi,
       tempSigner
     );
@@ -294,11 +295,12 @@ const SwapBase = (props: Props) => {
         tokenX,
         true
       );
-      console.log("a");
+
       const blockNumBefore = await tempProvider.getBlockNumber();
       const blockBefore = await tempProvider.getBlock(blockNumBefore);
       const timestampBefore = blockBefore.timestamp;
-      setEstimatedTimestamp(timestampBefore + 50);
+      //setEstimatedTimestamp(timestampBefore + 50);
+      console.log("estimatedTimestamp", timestampBefore);
       console.log("c");
       const getSlippage = () => {
         if (customSlippage) {
@@ -308,20 +310,25 @@ const SwapBase = (props: Props) => {
         }
       };
       const amountOutWithSlippage = getSlippage();
+      console.log(
+        ethers.utils.parseUnits(tokenX),
+        "ethers.utils.parseUnits(tokenX)"
+      );
       const gasPrice = await ethers.getDefaultProvider().getGasPrice();
       const gasUnits = await swapContract.estimateGas.swapExactTokensForTokens(
-        ethers.utils.parseUnits(tokenX),
-        Math.floor(amountOutWithSlippage),
+        ethers.utils.parseUnits(tokenX).toString(),
+        amountOutWithSlippage,
         [20],
         [
           "0x109D6A9A17306F6B8BB545F6061Bc9Aed3ae8463",
           "0x505981Cb786561bB626749Be0f133013D7B59513",
         ],
-        "0x5bD5473183CEe0EDcc5af3cc66F9b2C2C7bf6f41",
-        estimatedTimestamp
+        tempSigner.getAddress(),
+        String(timestampBefore + 50)
       );
 
       const transactionFee = gasPrice.mul(gasUnits);
+      console.log("bbbbbb");
       console.log("transactionFee in wei: " + transactionFee.toString());
       setPreviewParams({
         ...previewParams,
@@ -330,13 +337,13 @@ const SwapBase = (props: Props) => {
         tokenXName: selectedTokenX.name,
         tokenYName: selectedTokenY.name,
         loaded: true,
-        estimatedTimestamp: estimatedTimestamp.toString(),
+        estimatedTimestamp: String(timestampBefore + 50),
         netWorkFee: ethers.utils.formatUnits(transactionFee, "ether"),
       });
 
       console.log(
-        "transactionFee in ether: " +
-          ethers.utils.formatUnits(transactionFee, "ether")
+        "transactionFee in ether: "
+        //ethers.utils.formatUnits(transactionFee, "ether")
       );
     } catch (error) {
       console.log(error);

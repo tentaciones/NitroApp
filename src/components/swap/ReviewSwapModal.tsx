@@ -48,7 +48,7 @@ const ReviewSwapModal = (props: Props) => {
     let tempSigner = tempProvider.getSigner();
 
     let swapContract = new ethers.Contract(
-      NITRO_ROUTER,
+      "0x5d8165adD2156bFD51E6CcCb15293db07Fe8ba07",
       nitroRouterAbi,
       tempSigner
     );
